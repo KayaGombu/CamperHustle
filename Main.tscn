@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://26o1ui1id8am"]
+
+[ext_resource type="AudioStream" uid="uid://ck6mfoni8hbf" path="res://Camper Hustle/Sound Effects/Background Noise -Music.mp3" id="1_s8fyr"]
+[ext_resource type="AudioStream" uid="uid://cflhqlylll8ga" path="res://Camper Hustle/Sound Effects/Backgorund Noise - Forest.wav" id="2_3oayy"]
+
+[node name="Main" type="Node"]
+
+[node name="Music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("1_s8fyr")
+
+[node name="Forest" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_3oayy")

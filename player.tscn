@@ -1,16 +1,109 @@
-[gd_scene load_steps=3 format=3 uid="uid://bsam3ad3wp54q"]
+[gd_scene load_steps=13 format=3 uid="uid://bsam3ad3wp54q"]
 
-[ext_resource type="Texture2D" uid="uid://bnf3u434n6twc" path="res://icon.svg" id="1_k0ry5"]
+[ext_resource type="Texture2D" uid="uid://uuls6vdce1b3" path="res://Camper Hustle/Counselor/Counselor - Down Idle.png" id="1_ong3d"]
+[ext_resource type="Texture2D" uid="uid://c5fyxkfst3iv3" path="res://Camper Hustle/Counselor/Counselor - Down Walk - L.png" id="2_vrvu5"]
+[ext_resource type="Texture2D" uid="uid://tipdhovbb6i1" path="res://Camper Hustle/Counselor/Counselor - Down Walk - R.png" id="3_rmij6"]
+[ext_resource type="Texture2D" uid="uid://b1xcj1l8ttjkh" path="res://Camper Hustle/Counselor/Counselor - Up Idle.png" id="4_yv0e1"]
+[ext_resource type="Texture2D" uid="uid://csl2av2uh2eky" path="res://Camper Hustle/Counselor/Counselor - Side Idle.png" id="5_k2evg"]
+[ext_resource type="Texture2D" uid="uid://dnbpbg7fssl6" path="res://Camper Hustle/Counselor/Counselor - Side Walk - L.png" id="6_qb4b2"]
+[ext_resource type="Texture2D" uid="uid://b36pyrebacb2m" path="res://Camper Hustle/Counselor/Counselor - Side Walk - R.png" id="7_c1jvw"]
+[ext_resource type="Texture2D" uid="uid://uxjog1e805t1" path="res://Camper Hustle/Counselor/Counselor - Up Walk - Left.png" id="8_ovar0"]
+[ext_resource type="Texture2D" uid="uid://claxgwyml57n5" path="res://Camper Hustle/Counselor/Counselor - Up Walk - R.png" id="9_0die4"]
+[ext_resource type="AudioStream" uid="uid://cqxvaqidi8sp6" path="res://Camper Hustle/Sound Effects/Footsteps.wav" id="10_24qmm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uenyb"]
-size = Vector2(129, 128)
+size = Vector2(191, 476)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gv4i8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_ong3d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_vrvu5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_ong3d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_rmij6")
+}],
+"loop": true,
+"name": &"Down Walk",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_ong3d")
+}],
+"loop": true,
+"name": &"Idle Down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_yv0e1")
+}],
+"loop": true,
+"name": &"Idle Up",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_k2evg")
+}],
+"loop": true,
+"name": &"Side Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_k2evg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_qb4b2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_k2evg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_c1jvw")
+}],
+"loop": true,
+"name": &"Side Walk",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_yv0e1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_ovar0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_yv0e1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_0die4")
+}],
+"loop": true,
+"name": &"Up Walk",
+"speed": 3.0
+}]
 
 [node name="Player" type="RigidBody2D"]
 gravity_scale = 0.0
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_k0ry5")
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-0.5, 0)
+position = Vector2(3.5, -65)
 shape = SubResource("RectangleShape2D_uenyb")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-1, -6)
+scale = Vector2(7.35, 7.11)
+sprite_frames = SubResource("SpriteFrames_gv4i8")
+animation = &"Side Idle"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("10_24qmm")

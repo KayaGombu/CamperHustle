@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://ck6mfoni8hbf"
+path="res://.godot/imported/Background Noise -Music.mp3-dc56f45397236a0218f368bb79feefbf.mp3str"
+
+[deps]
+
+source_file="res://Camper Hustle/Sound Effects/Background Noise -Music.mp3"
+dest_files=["res://.godot/imported/Background Noise -Music.mp3-dc56f45397236a0218f368bb79feefbf.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
