@@ -1,6 +1,7 @@
-[gd_scene load_steps=13 format=3 uid="uid://b6chbk7m4q6jh"]
+[gd_scene load_steps=14 format=3 uid="uid://b6chbk7m4q6jh"]
 
 [ext_resource type="Texture2D" uid="uid://bg6v6rsg0nt8x" path="res://Camper Hustle/Camper/Camper - Down Idle.png" id="1_j8n0x"]
+[ext_resource type="Script" path="res://camper.gd" id="1_v7cdh"]
 [ext_resource type="Texture2D" uid="uid://bgcd0yv27yjrk" path="res://Camper Hustle/Camper/Camper - Down Walk L.png" id="2_ng4vm"]
 [ext_resource type="Texture2D" uid="uid://d0m2lwfo13k4g" path="res://Camper Hustle/Camper/Camper - Down Walk R.png" id="3_inwei"]
 [ext_resource type="Texture2D" uid="uid://crngysso2txen" path="res://Camper Hustle/Camper/Camper - Side Idle.png" id="4_ee8u2"]
@@ -11,8 +12,8 @@
 [ext_resource type="Texture2D" uid="uid://cvkdrgldua4iy" path="res://Camper Hustle/Camper/Camper - Up Walk R.png" id="9_bih68"]
 [ext_resource type="AudioStream" uid="uid://cqxvaqidi8sp6" path="res://Camper Hustle/Sound Effects/Footsteps.wav" id="10_it6h6"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_4c0fg"]
-size = Vector2(28, 51)
+[sub_resource type="CircleShape2D" id="CircleShape2D_jrb4x"]
+radius = 7.0
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_drtht"]
 animations = [{
@@ -93,11 +94,13 @@ animations = [{
 }]
 
 [node name="Camper" type="CharacterBody2D"]
+position = Vector2(1, -3)
+script = ExtResource("1_v7cdh")
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-2, -10.5)
-shape = SubResource("RectangleShape2D_4c0fg")
+position = Vector2(-2, 8)
+shape = SubResource("CircleShape2D_jrb4x")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_drtht")

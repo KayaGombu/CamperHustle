@@ -1,10 +1,15 @@
-[gd_scene load_steps=6 format=3 uid="uid://ryj4jeoic5oq"]
+[gd_scene load_steps=9 format=3 uid="uid://ryj4jeoic5oq"]
 
 [ext_resource type="AudioStream" uid="uid://ck6mfoni8hbf" path="res://Camper Hustle/Sound Effects/Background Noise -Music.mp3" id="1_nbwmi"]
 [ext_resource type="PackedScene" uid="uid://bsam3ad3wp54q" path="res://player.tscn" id="2_0vlpw"]
 [ext_resource type="AudioStream" uid="uid://cflhqlylll8ga" path="res://Camper Hustle/Sound Effects/Backgorund Noise - Forest.wav" id="3_p4vpw"]
 [ext_resource type="PackedScene" uid="uid://gmgn2wx5xrlr" path="res://camp_fire.tscn" id="4_obglk"]
 [ext_resource type="Script" path="res://camp_fire.gd" id="5_sy83v"]
+[ext_resource type="PackedScene" uid="uid://b6chbk7m4q6jh" path="res://camper.tscn" id="6_n1d7w"]
+[ext_resource type="Script" path="res://cabin.gd" id="7_mn4qw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y3iop"]
+size = Vector2(1151, 116)
 
 [node name="Main" type="Node"]
 
@@ -15,8 +20,23 @@ stream = ExtResource("1_nbwmi")
 stream = ExtResource("3_p4vpw")
 
 [node name="Player" parent="." instance=ExtResource("2_0vlpw")]
-position = Vector2(646, 308)
+z_index = 1
+position = Vector2(628, 299)
 
 [node name="CampFire" parent="." instance=ExtResource("4_obglk")]
 position = Vector2(593, 323)
 script = ExtResource("5_sy83v")
+
+[node name="Camper" parent="." instance=ExtResource("6_n1d7w")]
+position = Vector2(258, 76)
+
+[node name="Cabin" type="Area2D" parent="."]
+position = Vector2(513, 34)
+script = ExtResource("7_mn4qw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cabin"]
+position = Vector2(63.5, 22)
+shape = SubResource("RectangleShape2D_y3iop")
+
+[connection signal="body_entered" from="Cabin" to="Camper" method="_on_cabin_body_entered"]
+[connection signal="body_exited" from="Cabin" to="Camper" method="_on_cabin_body_exited"]
