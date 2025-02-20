@@ -3,6 +3,8 @@ extends CharacterBody2D
 @export var speed = 200
 var screen_size
 var direction
+var holding = false
+signal pick_up_child
 
 func _ready() -> void:
 	screen_size = get_viewport_rect().size
@@ -51,3 +53,7 @@ func _process(delta: float) -> void:
 			$AnimatedSprite2D.flip_h = true
 		elif direction == "Right":
 			$AnimatedSprite2D.animation = "Side Idle"
+			
+	
+	if Input.is_action_pressed("pick_up"):
+		pick_up_child.emit()

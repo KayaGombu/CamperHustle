@@ -1,12 +1,21 @@
-[gd_scene load_steps=6 format=3 uid="uid://ryj4jeoic5oq"]
+[gd_scene load_steps=8 format=3 uid="uid://26o1ui1id8am"]
 
 [ext_resource type="AudioStream" uid="uid://ck6mfoni8hbf" path="res://Camper Hustle/Sound Effects/Background Noise -Music.mp3" id="1_nbwmi"]
 [ext_resource type="PackedScene" uid="uid://bsam3ad3wp54q" path="res://player.tscn" id="2_0vlpw"]
 [ext_resource type="AudioStream" uid="uid://cflhqlylll8ga" path="res://Camper Hustle/Sound Effects/Backgorund Noise - Forest.wav" id="3_p4vpw"]
 [ext_resource type="PackedScene" uid="uid://gmgn2wx5xrlr" path="res://camp_fire.tscn" id="4_obglk"]
 [ext_resource type="Script" path="res://camp_fire.gd" id="5_sy83v"]
+[ext_resource type="PackedScene" uid="uid://b6chbk7m4q6jh" path="res://camper.tscn" id="6_8n84l"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_l561a"]
 
 [node name="Main" type="Node"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.258824, 0.635294, 0.184314, 1)
+position = Vector2(569.75, 316.75)
+scale = Vector2(1140.5, 634.5)
+texture = SubResource("CanvasTexture_l561a")
 
 [node name="Music" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("1_nbwmi")
@@ -15,8 +24,14 @@ stream = ExtResource("1_nbwmi")
 stream = ExtResource("3_p4vpw")
 
 [node name="Player" parent="." instance=ExtResource("2_0vlpw")]
-position = Vector2(646, 308)
+position = Vector2(193, 339)
 
 [node name="CampFire" parent="." instance=ExtResource("4_obglk")]
-position = Vector2(593, 323)
+position = Vector2(560, 332)
 script = ExtResource("5_sy83v")
+
+[node name="Camper1" parent="." instance=ExtResource("6_8n84l")]
+position = Vector2(93, 42)
+
+[node name="Camper2" parent="." instance=ExtResource("6_8n84l")]
+position = Vector2(282, 325)

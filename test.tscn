@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dr0twtdcgiku4"]
+[gd_scene load_steps=14 format=3 uid="uid://qmhkl3crdx0o"]
 
 [ext_resource type="Script" path="res://test.gd" id="1_4wvwt"]
 [ext_resource type="Texture2D" uid="uid://uuls6vdce1b3" path="res://Camper Hustle/Counselor/Counselor - Down Idle.png" id="1_jjhaa"]
