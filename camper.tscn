@@ -92,7 +92,8 @@ animations = [{
 "speed": 3.0
 }]
 
-[node name="Camper" type="RigidBody2D"]
+[node name="Camper" type="CharacterBody2D"]
+metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-2, -10.5)

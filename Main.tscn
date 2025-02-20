@@ -1,12 +1,22 @@
-[gd_scene load_steps=3 format=3 uid="uid://26o1ui1id8am"]
+[gd_scene load_steps=6 format=3 uid="uid://ryj4jeoic5oq"]
 
-[ext_resource type="AudioStream" uid="uid://ck6mfoni8hbf" path="res://Camper Hustle/Sound Effects/Background Noise -Music.mp3" id="1_s8fyr"]
-[ext_resource type="AudioStream" uid="uid://cflhqlylll8ga" path="res://Camper Hustle/Sound Effects/Backgorund Noise - Forest.wav" id="2_3oayy"]
+[ext_resource type="AudioStream" uid="uid://ck6mfoni8hbf" path="res://Camper Hustle/Sound Effects/Background Noise -Music.mp3" id="1_nbwmi"]
+[ext_resource type="PackedScene" uid="uid://bsam3ad3wp54q" path="res://player.tscn" id="2_0vlpw"]
+[ext_resource type="AudioStream" uid="uid://cflhqlylll8ga" path="res://Camper Hustle/Sound Effects/Backgorund Noise - Forest.wav" id="3_p4vpw"]
+[ext_resource type="PackedScene" uid="uid://gmgn2wx5xrlr" path="res://camp_fire.tscn" id="4_obglk"]
+[ext_resource type="Script" path="res://camp_fire.gd" id="5_sy83v"]
 
 [node name="Main" type="Node"]
 
 [node name="Music" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("1_s8fyr")
+stream = ExtResource("1_nbwmi")
 
 [node name="Forest" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("2_3oayy")
+stream = ExtResource("3_p4vpw")
+
+[node name="Player" parent="." instance=ExtResource("2_0vlpw")]
+position = Vector2(646, 308)
+
+[node name="CampFire" parent="." instance=ExtResource("4_obglk")]
+position = Vector2(593, 323)
+script = ExtResource("5_sy83v")

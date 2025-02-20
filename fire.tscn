@@ -29,7 +29,8 @@ animations = [{
 "speed": 7.5
 }]
 
-[node name="Fire" type="RigidBody2D"]
+[node name="Fire" type="Node2D"]
+metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-5, -23)

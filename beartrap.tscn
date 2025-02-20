@@ -26,7 +26,8 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Beartrap" type="RigidBody2D"]
+[node name="Beartrap" type="Node2D"]
+metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(137, 29)
