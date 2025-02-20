@@ -1,4 +1,5 @@
 extends CharacterBody2D
+signal step
 
 @export var speed = 200
 var screen_size
@@ -60,3 +61,8 @@ func _process(delta: float) -> void:
 			$AnimatedSprite2D.flip_h = true
 		elif direction == "Right":
 			$AnimatedSprite2D.animation = "Side Idle"
+
+func _on_body_entered(body: Node2D) -> void:
+	if body.has_method("fire"):
+		print("Fire")
+		step.emit()
