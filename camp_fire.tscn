@@ -1,5 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://gmgn2wx5xrlr"]
+[gd_scene load_steps=9 format=3 uid="uid://gmgn2wx5xrlr"]
 
+[ext_resource type="Script" path="res://camp_fire.gd" id="1_fspy3"]
 [ext_resource type="Texture2D" uid="uid://bmqhrve0fpnbe" path="res://Camper Hustle/CampFire/Campfire.png" id="1_l4ymr"]
 [ext_resource type="Texture2D" uid="uid://c4ipbisnb85ae" path="res://Camper Hustle/CampFire/Campfire - 2.png" id="2_f1tgl"]
 [ext_resource type="Texture2D" uid="uid://0tb5mrxj05ki" path="res://Camper Hustle/CampFire/Campfire- 3.png" id="3_7a6ai"]
@@ -30,6 +31,8 @@ animations = [{
 }]
 
 [node name="CampFire" type="Node2D"]
+position = Vector2(143, 108)
+script = ExtResource("1_fspy3")
 metadata/_edit_group_ = true
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
@@ -43,5 +46,7 @@ sprite_frames = SubResource("SpriteFrames_orlg8")
 animation = &"Campfire"
 frame_progress = 0.173622
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+[node name="Fire" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_d83nk")
+autoplay = true
+max_distance = 400.0

@@ -103,9 +103,12 @@ position = Vector2(-1, -6)
 sprite_frames = SubResource("SpriteFrames_gv4i8")
 animation = &"Up Walk"
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+[node name="Footsteps" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("10_24qmm")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 13)
 shape = SubResource("CircleShape2D_pjnl2")
+
+[node name="AudioListener2D" type="AudioListener2D" parent="."]
+current = true

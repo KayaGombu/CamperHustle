@@ -23,6 +23,10 @@ func _process(delta: float) -> void:
 		if Input.is_action_pressed("Up"):
 			velocity.y -= 1
 
+	if velocity.length() != 0:
+		if !$Footsteps.playing:
+			$Footsteps.play()
+
 	if velocity.length() > 0:
 		velocity = velocity.normalized() * speed
 		$AnimatedSprite2D.play()
@@ -46,6 +50,7 @@ func _process(delta: float) -> void:
 			$AnimatedSprite2D.animation = "Down Walk"
 			direction = "Down"
 	if velocity.x == 0 && velocity.y == 0:
+		$Footsteps.stop()
 		if direction == "Up":
 			$AnimatedSprite2D.animation = "Up Idle"
 		elif direction == "Down":

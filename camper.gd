@@ -9,12 +9,10 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
-
 func _on_cabin_body_entered(body: Node2D) -> void:
 	if body.has_method("camper"):
 		camperCount += 1 
 		print("IN")
-
 
 func _on_cabin_body_exited(body: Node2D) -> void:
 	if body.has_method("camper"):
