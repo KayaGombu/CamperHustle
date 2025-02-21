@@ -13,16 +13,14 @@ func _process(delta: float) -> void:
 	
 	var velocity = Vector2.ZERO # The player's movement vector.
 	
-	var collision = move_and_collide(velocity * delta)
-	if !collision:
-		if Input.is_action_pressed("Right"):
-			velocity.x += 1
-		if Input.is_action_pressed("Left"):
-			velocity.x -= 1
-		if Input.is_action_pressed("Down"):
-			velocity.y += 1
-		if Input.is_action_pressed("Up"):
-			velocity.y -= 1
+	if Input.is_action_pressed("Right"):
+		velocity.x += 1
+	if Input.is_action_pressed("Left"):
+		velocity.x -= 1
+	if Input.is_action_pressed("Down"):
+		velocity.y += 1
+	if Input.is_action_pressed("Up"):
+		velocity.y -= 1
 
 	if velocity.length() != 0:
 		if !$Footsteps.playing:
@@ -61,6 +59,7 @@ func _process(delta: float) -> void:
 			$AnimatedSprite2D.flip_h = true
 		elif direction == "Right":
 			$AnimatedSprite2D.animation = "Side Idle"
+	move_and_slide()
 
 func player():
 	pass

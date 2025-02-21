@@ -94,6 +94,7 @@ animations = [{
 radius = 8.0
 
 [node name="Player" type="CharacterBody2D"]
+y_sort_enabled = true
 position = Vector2(1020, 137)
 script = ExtResource("1_8xil4")
 metadata/_edit_group_ = true
