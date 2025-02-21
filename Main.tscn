@@ -39,13 +39,18 @@ script = ExtResource("7_mn4qw")
 position = Vector2(592.5, 290)
 shape = SubResource("RectangleShape2D_y3iop")
 
-[node name="FireSpread" type="Timer" parent="."]
+[node name="ForestFire" type="Node2D" parent="."]
 
 [node name="Fire" parent="." instance=ExtResource("8_361sw")]
 position = Vector2(-97, 85)
 
+[node name="FireSpread" type="Timer" parent="."]
+
+[node name="ContinueSpread" type="Timer" parent="."]
+
 [connection signal="step" from="Player" to="Fire" method="_on_player_step"]
 [connection signal="body_entered" from="Cabin" to="Camper" method="_on_cabin_body_entered"]
 [connection signal="body_exited" from="Cabin" to="Camper" method="_on_cabin_body_exited"]
-[connection signal="timeout" from="FireSpread" to="." method="_on_fire_spread_timeout"]
 [connection signal="putOut" from="Fire" to="." method="_on_fire_put_out"]
+[connection signal="timeout" from="FireSpread" to="." method="_on_fire_spread_timeout"]
+[connection signal="timeout" from="ContinueSpread" to="." method="_on_continue_spread_timeout"]

@@ -62,7 +62,5 @@ func _process(delta: float) -> void:
 		elif direction == "Right":
 			$AnimatedSprite2D.animation = "Side Idle"
 
-func _on_body_entered(body: Node2D) -> void:
-	if body.has_method("fire"):
-		print("Fire")
-		step.emit()
+func player():
+	pass

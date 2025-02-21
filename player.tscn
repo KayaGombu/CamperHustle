@@ -113,11 +113,4 @@ current = true
 position = Vector2(0, 13)
 shape = SubResource("CircleShape2D_pjnl2")
 
-[node name="Area2D" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(0, 13)
-shape = SubResource("CircleShape2D_pjnl2")
-
 [connection signal="step" from="." to="." method="_on_step"]
-[connection signal="body_entered" from="Area2D" to="." method="_on_body_entered"]
