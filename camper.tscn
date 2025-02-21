@@ -12,6 +12,9 @@
 [ext_resource type="Texture2D" uid="uid://cvkdrgldua4iy" path="res://Camper Hustle/Camper/Camper - Up Walk R.png" id="9_bih68"]
 [ext_resource type="AudioStream" uid="uid://cqxvaqidi8sp6" path="res://Camper Hustle/Sound Effects/Footsteps.wav" id="10_it6h6"]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_jrb4x"]
+radius = 7.0
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_drtht"]
 animations = [{
 "frames": [{
@@ -100,6 +103,9 @@ height = 36.0
 position = Vector2(-1, 0)
 script = ExtResource("1_u0dab")
 metadata/_edit_group_ = true
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2, 8)
+shape = SubResource("CircleShape2D_jrb4x")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_drtht")

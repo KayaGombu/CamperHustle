@@ -2,13 +2,13 @@
 
 [ext_resource type="AudioStream" uid="uid://ck6mfoni8hbf" path="res://Camper Hustle/Sound Effects/Background Noise -Music.mp3" id="1_s8fyr"]
 [ext_resource type="AudioStream" uid="uid://cflhqlylll8ga" path="res://Camper Hustle/Sound Effects/Backgorund Noise - Forest.wav" id="2_3oayy"]
-[ext_resource type="Texture2D" uid="uid://dovuqnr67ifdd" path="res://Camper Hustle/World/survivalgame-terrian-defult.png" id="3_440jc"]
-[ext_resource type="Texture2D" uid="uid://b5d8ypa2nkclf" path="res://Camper Hustle/World/survivalgame-terrian-water.png" id="4_3278n"]
-[ext_resource type="Texture2D" uid="uid://cbqb12iknpw61" path="res://Camper Hustle/World/survivalgame-trees.png" id="5_lilbh"]
 [ext_resource type="PackedScene" uid="uid://dr0twtdcgiku4" path="res://test.tscn" id="6_7t7qg"]
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_3kcgd"]
+load_path = "res://.godot/imported/survivalgame-terrian-defult.png-70ad645da49ac5e8413dcb62512edc93.ctex"
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5u8x2"]
-texture = ExtResource("3_440jc")
+texture = SubResource("CompressedTexture2D_3kcgd")
 texture_region_size = Vector2i(40, 40)
 0:0/0 = 0
 1:0/0 = 0
@@ -92,8 +92,11 @@ texture_region_size = Vector2i(40, 40)
 17:3/0 = 0
 18:3/0 = 0
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ri8xk"]
+load_path = "res://.godot/imported/survivalgame-terrian-water.png-ad92b36b8694440ddbf7de3ac8558159.ctex"
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_l1207"]
-texture = ExtResource("4_3278n")
+texture = SubResource("CompressedTexture2D_ri8xk")
 texture_region_size = Vector2i(40, 40)
 0:0/0 = 0
 1:0/0 = 0
@@ -145,8 +148,11 @@ texture_region_size = Vector2i(40, 40)
 17:2/0 = 0
 18:2/0 = 0
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_fwb0h"]
+load_path = "res://.godot/imported/survivalgame-trees.png-6723d7e549defcef4d284844bb14029c.ctex"
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_33i84"]
-texture = ExtResource("5_lilbh")
+texture = SubResource("CompressedTexture2D_fwb0h")
 texture_region_size = Vector2i(40, 40)
 0:0/0 = 0
 1:0/0 = 0

@@ -4,9 +4,6 @@
 [ext_resource type="Texture2D" uid="uid://bsiofl5l8wo55" path="res://Camper Hustle/BearTrap/BearTrap.png" id="2_87y0k"]
 [ext_resource type="AudioStream" uid="uid://4l8qpvpqdr85" path="res://Camper Hustle/Sound Effects/BearTrap.mp3" id="3_c4lfc"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_4hxjj"]
-radius = 21.0238
-
 [sub_resource type="SpriteFrames" id="SpriteFrames_bmn48"]
 animations = [{
 "frames": [{
@@ -26,17 +23,22 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_4hxjj"]
+radius = 21.0238
+
 [node name="Beartrap" type="Node2D"]
 metadata/_edit_group_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(137, 29)
-shape = SubResource("CircleShape2D_4hxjj")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(142, 40)
 sprite_frames = SubResource("SpriteFrames_bmn48")
 animation = &"open"
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+[node name="Activate" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_c4lfc")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(137, 29)
+shape = SubResource("CircleShape2D_4hxjj")

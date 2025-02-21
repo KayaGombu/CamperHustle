@@ -24,6 +24,9 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("1_ong3d")
+}, {
+"duration": 1.0,
 "texture": ExtResource("2_vrvu5")
 }, {
 "duration": 1.0,
@@ -31,9 +34,6 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": ExtResource("3_rmij6")
-}, {
-"duration": 1.0,
-"texture": ExtResource("1_ong3d")
 }],
 "loop": true,
 "name": &"Down Walk",
@@ -49,6 +49,9 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("5_k2evg")
+}, {
+"duration": 1.0,
 "texture": ExtResource("6_qb4b2")
 }, {
 "duration": 1.0,
@@ -56,9 +59,6 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": ExtResource("7_c1jvw")
-}, {
-"duration": 1.0,
-"texture": ExtResource("5_k2evg")
 }],
 "loop": true,
 "name": &"Side Walk",
@@ -74,6 +74,9 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("4_yv0e1")
+}, {
+"duration": 1.0,
 "texture": ExtResource("8_ovar0")
 }, {
 "duration": 1.0,
@@ -81,9 +84,6 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": ExtResource("9_0die4")
-}, {
-"duration": 1.0,
-"texture": ExtResource("4_yv0e1")
 }],
 "loop": true,
 "name": &"Up Walk",
@@ -101,11 +101,23 @@ metadata/_edit_group_ = true
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-1, -6)
 sprite_frames = SubResource("SpriteFrames_gv4i8")
-animation = &"Down Walk"
+animation = &"Up Walk"
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+[node name="Footsteps" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("10_24qmm")
+
+[node name="AudioListener2D" type="AudioListener2D" parent="."]
+current = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 13)
 shape = SubResource("CircleShape2D_pjnl2")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 13)
+shape = SubResource("CircleShape2D_pjnl2")
+
+[connection signal="step" from="." to="." method="_on_step"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_body_entered"]
