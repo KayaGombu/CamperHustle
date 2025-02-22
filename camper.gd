@@ -25,9 +25,15 @@ func _on_player_drop_child():
 	following = false
 	inRange = false
 	
+#Checks whether the player is in range
 func _on_pick_up_range_body_entered(body: Node2D) -> void:
 	if body.has_method("player"):
 		inRange = true
+
+#Checks when the player leaves range
+func _on_pick_up_range_body_exited(body: Node2D) -> void:
+	if body.has_method("player"):
+		inRange = false
 func _on_cabin_body_entered(body: Node2D) -> void:
 	if body.has_method("camper"):
 		camperCount += 1 
@@ -37,8 +43,6 @@ func _on_cabin_body_exited(body: Node2D) -> void:
 	if body.has_method("camper"):
 		camperCount -= 1
 		print("OUT")
-	
 
-
-func _on_pick_up_range_body_exited(body: Node2D) -> void:
-	inRange = false
+func camper():
+	pass

@@ -1,5 +1,5 @@
 extends Node2D
-signal putOut(name)
+signal put_out(name)
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	$Fire.play()
@@ -13,6 +13,8 @@ func _process(delta: float) -> void:
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.has_method("player"):
-		var node = get_node("..Main")
-		putOut.emit(self.name)
+		#var node = get_node("..Main")
+		put_out.emit(self.name)
 		queue_free()
+	elif body.has_method("camper"):
+		body.queue_free()

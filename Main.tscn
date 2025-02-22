@@ -3120,6 +3120,6 @@ polygon = PackedVector2Array(334, 0, 335, 56, 339, 67, 347, 71, 357, 76, 369, 75
 
 [connection signal="body_entered" from="Cabin" to="Camper" method="_on_cabin_body_entered"]
 [connection signal="body_exited" from="Cabin" to="Camper" method="_on_cabin_body_exited"]
-[connection signal="putOut" from="Fire" to="." method="_on_fire_put_out"]
+[connection signal="put_out" from="Fire" to="." method="_on_fire_put_out"]
 [connection signal="timeout" from="FireSpread" to="." method="_on_fire_spread_timeout"]
 [connection signal="timeout" from="ContinueSpread" to="." method="_on_continue_spread_timeout"]
