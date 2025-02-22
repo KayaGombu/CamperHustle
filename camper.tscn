@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://b6chbk7m4q6jh"]
+[gd_scene load_steps=16 format=3 uid="uid://b6chbk7m4q6jh"]
 
 [ext_resource type="Texture2D" uid="uid://bg6v6rsg0nt8x" path="res://Camper Hustle/Camper/Camper - Down Idle.png" id="1_j8n0x"]
 [ext_resource type="Script" path="res://camper.gd" id="1_u0dab"]
@@ -103,6 +103,7 @@ height = 36.0
 position = Vector2(-1, 0)
 script = ExtResource("1_u0dab")
 metadata/_edit_group_ = true
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-2, 8)
 shape = SubResource("CircleShape2D_jrb4x")
@@ -111,7 +112,7 @@ shape = SubResource("CircleShape2D_jrb4x")
 sprite_frames = SubResource("SpriteFrames_drtht")
 animation = &"Down Walk"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
 position = Vector2(-2, 5)
 shape = SubResource("CircleShape2D_ogt6f")
 

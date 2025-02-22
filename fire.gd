@@ -1,5 +1,5 @@
 extends Node2D
-signal putOut
+signal putOut(name)
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	$Fire.play()
@@ -11,9 +11,8 @@ func _process(delta: float) -> void:
 	$AnimatedSprite2D.animation = "Fire"
 
 
-func _on_player_step() -> void:
-	print("Step")
-	putOut.emit()
-
-func fire():
-	pass
+func _on_body_entered(body: Node2D) -> void:
+	if body.has_method("player"):
+		var node = get_node("..Main")
+		putOut.emit(self.name)
+		queue_free()
