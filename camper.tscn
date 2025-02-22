@@ -1,31 +1,40 @@
-[gd_scene load_steps=23 format=3 uid="uid://b6chbk7m4q6jh"]
+[gd_scene load_steps=24 format=3 uid="uid://b6chbk7m4q6jh"]
 
 [ext_resource type="Texture2D" uid="uid://bg6v6rsg0nt8x" path="res://Camper Hustle/Camper/Camper - Down Idle.png" id="1_j8n0x"]
 [ext_resource type="Script" path="res://camper.gd" id="1_v7cdh"]
+[ext_resource type="Texture2D" uid="uid://djoi7t86yxsns" path="res://Camper Hustle/Camper/Camper - Crying.png" id="2_4alx2"]
 [ext_resource type="Texture2D" uid="uid://bgcd0yv27yjrk" path="res://Camper Hustle/Camper/Camper - Down Walk L.png" id="2_ng4vm"]
 [ext_resource type="Texture2D" uid="uid://d0m2lwfo13k4g" path="res://Camper Hustle/Camper/Camper - Down Walk R.png" id="3_inwei"]
 [ext_resource type="Texture2D" uid="uid://crngysso2txen" path="res://Camper Hustle/Camper/Camper - Side Idle.png" id="4_ee8u2"]
 [ext_resource type="Texture2D" uid="uid://woou3bao4tm7" path="res://Camper Hustle/Camper/Camper - Up Idle.png" id="5_u11gt"]
 [ext_resource type="Texture2D" uid="uid://drmxcfwssn712" path="res://Camper Hustle/Camper/Camper - Side Walk - L.png" id="6_dv08c"]
-[ext_resource type="Texture2D" uid="uid://djykt2sr8iyfs" path="res://Camper Hustle/Camper/Camper - Sick - Down Idle.png" id="7_21gp5"]
+[ext_resource type="Texture2D" uid="uid://ci0ri6nigsa8g" path="res://Camper Hustle/Camper/Camper - Sick - Down Idle.png" id="7_21gp5"]
 [ext_resource type="Texture2D" uid="uid://cqk4f1kkbj2g8" path="res://Camper Hustle/Camper/Camper - Side Walk - R.png" id="7_jbh71"]
 [ext_resource type="Texture2D" uid="uid://deb104gi4dvqp" path="res://Camper Hustle/Camper/Camper - Up Walk L.png" id="8_hvofy"]
-[ext_resource type="Texture2D" uid="uid://yhia6cnj7d0" path="res://Camper Hustle/Camper/Camper - Sick - Down Walk - L.png" id="8_komox"]
+[ext_resource type="Texture2D" uid="uid://0s4pqxsq2lua" path="res://Camper Hustle/Camper/Camper - Sick - Down Walk - L.png" id="8_komox"]
 [ext_resource type="Texture2D" uid="uid://cvkdrgldua4iy" path="res://Camper Hustle/Camper/Camper - Up Walk R.png" id="9_bih68"]
-[ext_resource type="Texture2D" uid="uid://cnxprwu8m7wjm" path="res://Camper Hustle/Camper/Camper - Sick - Down Walk - R.png" id="9_vsjh7"]
-[ext_resource type="Texture2D" uid="uid://x6pdclunbqa0" path="res://Camper Hustle/Camper/Camper - Sick - Side Idle.png" id="10_h5wb3"]
+[ext_resource type="Texture2D" uid="uid://o2hew7y33vcd" path="res://Camper Hustle/Camper/Camper - Sick - Down Walk - R.png" id="9_vsjh7"]
+[ext_resource type="Texture2D" uid="uid://bdqlesmw3edrt" path="res://Camper Hustle/Camper/Camper - Sick - Side Idle.png" id="10_h5wb3"]
 [ext_resource type="AudioStream" uid="uid://cqxvaqidi8sp6" path="res://Camper Hustle/Sound Effects/Footsteps.wav" id="10_it6h6"]
-[ext_resource type="Texture2D" uid="uid://bpbglgi055fqw" path="res://Camper Hustle/Camper/Camper - Sick - Side Walk - L.png" id="11_iai47"]
-[ext_resource type="Texture2D" uid="uid://sd37dyh2guwe" path="res://Camper Hustle/Camper/Camper - Sick - Side Walk - R.png" id="12_lvdf0"]
-[ext_resource type="Texture2D" uid="uid://blsj13qm2qs2c" path="res://Camper Hustle/Camper/Camper - Sick - Up Idle.png" id="13_c4av5"]
-[ext_resource type="Texture2D" uid="uid://dx7h6mslp17hc" path="res://Camper Hustle/Camper/Camper - Sick - Up Walk - L.png" id="14_l42rw"]
-[ext_resource type="Texture2D" uid="uid://bfj4fkk8jqtj6" path="res://Camper Hustle/Camper/Camper - Sick - Up Walk - R.png" id="15_p15hv"]
+[ext_resource type="Texture2D" uid="uid://dpnj6x8aiyl5p" path="res://Camper Hustle/Camper/Camper - Sick - Side Walk - L.png" id="11_iai47"]
+[ext_resource type="Texture2D" uid="uid://bufyf5tvbsenv" path="res://Camper Hustle/Camper/Camper - Sick - Side Walk - R.png" id="12_lvdf0"]
+[ext_resource type="Texture2D" uid="uid://d1jtoxe5wmmmu" path="res://Camper Hustle/Camper/Camper - Sick - Up Idle.png" id="13_c4av5"]
+[ext_resource type="Texture2D" uid="uid://db6q6lfym4dmf" path="res://Camper Hustle/Camper/Camper - Sick - Up Walk - L.png" id="14_l42rw"]
+[ext_resource type="Texture2D" uid="uid://da6oeuuik8vap" path="res://Camper Hustle/Camper/Camper - Sick - Up Walk - R.png" id="15_p15hv"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jrb4x"]
 radius = 7.0
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_drtht"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_4alx2")
+}],
+"loop": true,
+"name": &"Crying",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("1_j8n0x")
@@ -178,7 +187,7 @@ animations = [{
 }]
 
 [node name="Camper" type="CharacterBody2D"]
-position = Vector2(1, -3)
+position = Vector2(195, 153)
 script = ExtResource("1_v7cdh")
 metadata/_edit_group_ = true
 
@@ -188,7 +197,22 @@ shape = SubResource("CircleShape2D_jrb4x")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_drtht")
-animation = &"Up Walk"
+animation = &"Crying"
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("10_it6h6")
+
+[node name="TilDeath" type="Timer" parent="."]
+one_shot = true
+
+[node name="TimerPlacement" type="Marker2D" parent="."]
+position = Vector2(-16, -58)
+
+[node name="Timer" type="Label" parent="."]
+offset_left = -16.0
+offset_top = -58.0
+offset_right = 10.0
+offset_bottom = -35.0
+text = "a"
+horizontal_alignment = 1
+vertical_alignment = 1

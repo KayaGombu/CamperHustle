@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://db6q6lfym4dmf"
-path="res://.godot/imported/Camper - Sick - Up Walk - L.png-30f0589d040ff95084f4e0719599fa87.ctex"
+uid="uid://djoi7t86yxsns"
+path="res://.godot/imported/Camper - Crying.png-fdb08ab66af36d2dae42273fc6f24761.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Camper Hustle/Camper/Camper - Sick - Up Walk - L.png"
-dest_files=["res://.godot/imported/Camper - Sick - Up Walk - L.png-30f0589d040ff95084f4e0719599fa87.ctex"]
+source_file="res://Camper Hustle/Camper/Camper - Crying.png"
+dest_files=["res://.godot/imported/Camper - Crying.png-fdb08ab66af36d2dae42273fc6f24761.ctex"]
 
 [params]
 
