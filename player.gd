@@ -15,16 +15,14 @@ func _process(delta: float) -> void:
 	
 	var velocity = Vector2.ZERO # The player's movement vector.
 	
-	var collision = move_and_collide(velocity * delta)
-	if !collision:
-		if Input.is_action_pressed("Right"):
-			velocity.x += 1
-		if Input.is_action_pressed("Left"):
-			velocity.x -= 1
-		if Input.is_action_pressed("Down"):
-			velocity.y += 1
-		if Input.is_action_pressed("Up"):
-			velocity.y -= 1
+	if Input.is_action_pressed("Right"):
+		velocity.x += 1
+	if Input.is_action_pressed("Left"):
+		velocity.x -= 1
+	if Input.is_action_pressed("Down"):
+		velocity.y += 1
+	if Input.is_action_pressed("Up"):
+		velocity.y -= 1
 
 	if velocity.length() != 0:
 		if !$Footsteps.playing:
@@ -67,8 +65,7 @@ func _process(delta: float) -> void:
 	
 	if Input.is_action_pressed("pick_up"):
 		pick_up_child.emit()
+	move_and_slide()
 
-func _on_body_entered(body: Node2D) -> void:
-	if body.has_method("fire"):
-		print("Fire")
-		step.emit()
+func player():
+	pass

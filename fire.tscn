@@ -7,9 +7,6 @@
 [ext_resource type="Texture2D" uid="uid://f2kvw5olcq01" path="res://Camper Hustle/CampFire/Fire - 4.png" id="4_xujp1"]
 [ext_resource type="AudioStream" uid="uid://bb1vukfuo32rj" path="res://Camper Hustle/Sound Effects/Fire.wav" id="5_346h4"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_jc8ag"]
-size = Vector2(30, 42)
-
 [sub_resource type="SpriteFrames" id="SpriteFrames_eys8n"]
 animations = [{
 "frames": [{
@@ -30,20 +27,26 @@ animations = [{
 "speed": 7.5
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_40seo"]
+
 [node name="Fire" type="Node2D"]
-position = Vector2(4, 19)
+position = Vector2(5, 20)
 script = ExtResource("1_shssy")
 metadata/_edit_group_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-5, -23)
-shape = SubResource("RectangleShape2D_jc8ag")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_eys8n")
 animation = &"Fire"
-frame_progress = 0.890604
+frame_progress = 0.847788
 
 [node name="Fire" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_346h4")
 max_distance = 400.0
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-5, -10)
+shape = SubResource("CircleShape2D_40seo")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_body_entered"]
