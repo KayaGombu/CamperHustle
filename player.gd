@@ -5,6 +5,7 @@ var screen_size
 var direction
 var holding = false
 signal pick_up_child
+signal drop_child
 
 func _ready() -> void:
 	screen_size = get_viewport_rect().size
@@ -57,6 +58,10 @@ func _process(delta: float) -> void:
 			$AnimatedSprite2D.flip_h = true
 		elif direction == "Right":
 			$AnimatedSprite2D.animation = "Side Idle"			
-	if Input.is_action_pressed("pick_up") and not holding:
-		holding = true
-		pick_up_child.emit()
+	if Input.is_action_just_pressed("pick_up"):
+		if not holding:
+			holding = true
+			pick_up_child.emit()
+		else:
+			holding = false
+			drop_child.emit()
