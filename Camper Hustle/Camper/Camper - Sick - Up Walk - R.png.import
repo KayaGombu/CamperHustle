@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bl3pmp2kuywru"
-path="res://.godot/imported/survivalgame-terrian-water.png-f3a1cf1618a4595a703480ccaa094a35.ctex"
+uid="uid://bfj4fkk8jqtj6"
+path="res://.godot/imported/Camper - Sick - Up Walk - R.png-6cdbbd4b8893bb133948b91c31ae2960.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Camper Hustle/survivalgame-terrian-water.png"
-dest_files=["res://.godot/imported/survivalgame-terrian-water.png-f3a1cf1618a4595a703480ccaa094a35.ctex"]
+source_file="res://Camper Hustle/Camper/Camper - Sick - Up Walk - R.png"
+dest_files=["res://.godot/imported/Camper - Sick - Up Walk - R.png-6cdbbd4b8893bb133948b91c31ae2960.ctex"]
 
 [params]
 

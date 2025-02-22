@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://brkubh035gh4r"
-path="res://.godot/imported/Wood Floor.png-7c2d1e8747ffe6a383408b722b647a4a.ctex"
+uid="uid://bpbglgi055fqw"
+path="res://.godot/imported/Camper - Sick - Side Walk - L.png-7267bc08d13c46861abfaeef92913624.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Camper Hustle/Wood Floor.png"
-dest_files=["res://.godot/imported/Wood Floor.png-7c2d1e8747ffe6a383408b722b647a4a.ctex"]
+source_file="res://Camper Hustle/Camper/Camper - Sick - Side Walk - L.png"
+dest_files=["res://.godot/imported/Camper - Sick - Side Walk - L.png-7267bc08d13c46861abfaeef92913624.ctex"]
 
 [params]
 

@@ -1,17 +1,16 @@
-[gd_scene load_steps=19 format=3 uid="uid://ryj4jeoic5oq"]
+[gd_scene load_steps=18 format=3 uid="uid://ryj4jeoic5oq"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_8c20n"]
 [ext_resource type="AudioStream" uid="uid://ck6mfoni8hbf" path="res://Camper Hustle/Sound Effects/Background Noise -Music.mp3" id="1_nbwmi"]
 [ext_resource type="PackedScene" uid="uid://bsam3ad3wp54q" path="res://player.tscn" id="2_0vlpw"]
 [ext_resource type="AudioStream" uid="uid://cflhqlylll8ga" path="res://Camper Hustle/Sound Effects/Backgorund Noise - Forest.wav" id="3_p4vpw"]
 [ext_resource type="PackedScene" uid="uid://gmgn2wx5xrlr" path="res://camp_fire.tscn" id="4_obglk"]
-[ext_resource type="PackedScene" uid="uid://b6chbk7m4q6jh" path="res://camper.tscn" id="6_n1d7w"]
+[ext_resource type="Script" path="res://campers.gd" id="7_kl46x"]
 [ext_resource type="Script" path="res://cabin.gd" id="7_mn4qw"]
-[ext_resource type="PackedScene" uid="uid://c7vgkrpwm6ts4" path="res://fire.tscn" id="8_361sw"]
-[ext_resource type="Texture2D" uid="uid://bd1vs7xe408vh" path="res://Camper Hustle/survivalgame-trees.png" id="9_cmoxs"]
-[ext_resource type="Texture2D" uid="uid://bl3pmp2kuywru" path="res://Camper Hustle/survivalgame-terrian-water.png" id="10_sc8ew"]
-[ext_resource type="Texture2D" uid="uid://b1ql82ws7p4eu" path="res://Camper Hustle/survivalgame-terrian-defult.png" id="11_d4j8e"]
-[ext_resource type="Texture2D" uid="uid://brkubh035gh4r" path="res://Camper Hustle/Wood Floor.png" id="12_5porm"]
+[ext_resource type="Texture2D" uid="uid://bd1vs7xe408vh" path="res://Camper Hustle/World/survivalgame-trees.png" id="9_cmoxs"]
+[ext_resource type="Texture2D" uid="uid://bl3pmp2kuywru" path="res://Camper Hustle/World/survivalgame-terrian-water.png" id="10_sc8ew"]
+[ext_resource type="Texture2D" uid="uid://b1ql82ws7p4eu" path="res://Camper Hustle/World/survivalgame-terrian-defult.png" id="11_d4j8e"]
+[ext_resource type="Texture2D" uid="uid://brkubh035gh4r" path="res://Camper Hustle/World/Wood Floor.png" id="12_5porm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y3iop"]
 size = Vector2(103, 310)
@@ -3084,9 +3083,6 @@ position = Vector2(583, 323)
 z_index = 1
 position = Vector2(997, 314)
 
-[node name="Camper" parent="." instance=ExtResource("6_n1d7w")]
-position = Vector2(114, 76)
-
 [node name="Cabin" type="Area2D" parent="."]
 position = Vector2(513, 34)
 script = ExtResource("7_mn4qw")
@@ -3097,12 +3093,14 @@ shape = SubResource("RectangleShape2D_y3iop")
 
 [node name="ForestFire" type="Node2D" parent="."]
 
-[node name="Fire" parent="." instance=ExtResource("8_361sw")]
-position = Vector2(-97, 85)
+[node name="Campers" type="Node2D" parent="."]
+script = ExtResource("7_kl46x")
 
 [node name="FireSpread" type="Timer" parent="."]
 
 [node name="ContinueSpread" type="Timer" parent="."]
+
+[node name="Child Event" type="Timer" parent="."]
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_ng6yp")
@@ -3113,11 +3111,12 @@ layer_0/tile_data = PackedInt32Array(0, 2, 0, 65536, 2, 1, 1, 65538, 0, 65537, 6
 [node name="Collisions" type="StaticBody2D" parent="."]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Collisions"]
+position = Vector2(-1, 1)
 polygon = PackedVector2Array(334, 0, 335, 56, 339, 67, 347, 71, 357, 76, 369, 75, 382, 74, 392, 74, 403, 75, 412, 76, 413, 85, 414, 96, 416, 103, 420, 110, 430, 114, 442, 114, 668, 113, 675, 112, 678, 105, 678, 96, 678, 78, 751, 78, 759, 77, 769, 74, 773, 68, 776, 62, 777, 52, 776, 0)
 
-[connection signal="step" from="Player" to="Fire" method="_on_player_step"]
-[connection signal="body_entered" from="Cabin" to="Camper" method="_on_cabin_body_entered"]
-[connection signal="body_exited" from="Cabin" to="Camper" method="_on_cabin_body_exited"]
-[connection signal="putOut" from="Fire" to="." method="_on_fire_put_out"]
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(333, 0)
+
 [connection signal="timeout" from="FireSpread" to="." method="_on_fire_spread_timeout"]
 [connection signal="timeout" from="ContinueSpread" to="." method="_on_continue_spread_timeout"]
+[connection signal="timeout" from="Child Event" to="Campers" method="_on_child_event_timeout"]

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b1ql82ws7p4eu"
-path="res://.godot/imported/survivalgame-terrian-defult.png-dc7f592b6afd7f90241aa692f0105878.ctex"
+uid="uid://sd37dyh2guwe"
+path="res://.godot/imported/Camper - Sick - Side Walk - R.png-7733e279f4bd31035776f348a5d684aa.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Camper Hustle/survivalgame-terrian-defult.png"
-dest_files=["res://.godot/imported/survivalgame-terrian-defult.png-dc7f592b6afd7f90241aa692f0105878.ctex"]
+source_file="res://Camper Hustle/Camper/Camper - Sick - Side Walk - R.png"
+dest_files=["res://.godot/imported/Camper - Sick - Side Walk - R.png-7733e279f4bd31035776f348a5d684aa.ctex"]
 
 [params]
 

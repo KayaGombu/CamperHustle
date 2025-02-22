@@ -31,7 +31,6 @@ func SpawnFire():
 		n = randi_range(-1, 1)
 	var y = n * randi_range(40, 80)
 	var posi = spawnable[random][1] + Vector2(x, y)
-	print(posi)
 	while Vector2(613, 353) >= posi && posi >= Vector2(553, 293):
 		x = m * randi_range(40, 80)
 		y = n * randi_range(40, 80)
