@@ -1,5 +1,4 @@
 extends CharacterBody2D
-signal step
 
 @export var speed = 200
 var screen_size
@@ -12,9 +11,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	
 	var velocity = Vector2.ZERO # The player's movement vector.
-	
 	if Input.is_action_pressed("Right"):
 		velocity.x += 1
 	if Input.is_action_pressed("Left"):
@@ -27,7 +24,6 @@ func _process(delta: float) -> void:
 	if velocity.length() != 0:
 		if !$Footsteps.playing:
 			$Footsteps.play()
-
 	if velocity.length() > 0:
 		velocity = velocity.normalized() * speed
 		$AnimatedSprite2D.play()
@@ -60,12 +56,7 @@ func _process(delta: float) -> void:
 			$AnimatedSprite2D.animation = "Side Idle"
 			$AnimatedSprite2D.flip_h = true
 		elif direction == "Right":
-			$AnimatedSprite2D.animation = "Side Idle"
-			
-	
-	if Input.is_action_pressed("pick_up"):
+			$AnimatedSprite2D.animation = "Side Idle"			
+	if Input.is_action_pressed("pick_up") and not holding:
+		holding = true
 		pick_up_child.emit()
-	move_and_slide()
-
-func player():
-	pass

@@ -9,7 +9,6 @@
 [ext_resource type="PackedScene" uid="uid://b6chbk7m4q6jh" path="res://camper.tscn" id="6_8n84l"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_l561a"]
-[ext_resource type="PackedScene" uid="uid://b6chbk7m4q6jh" path="res://camper.tscn" id="6_n1d7w"]
 [ext_resource type="Script" path="res://cabin.gd" id="7_mn4qw"]
 [ext_resource type="PackedScene" uid="uid://c7vgkrpwm6ts4" path="res://fire.tscn" id="8_361sw"]
 [ext_resource type="Texture2D" uid="uid://bd1vs7xe408vh" path="res://Camper Hustle/survivalgame-trees.png" id="9_cmoxs"]
@@ -3094,8 +3093,6 @@ position = Vector2(193, 339)
 position = Vector2(560, 332)
 script = ExtResource("5_sy83v")
 
-[node name="Camper" parent="." instance=ExtResource("6_n1d7w")]
-position = Vector2(114, 76)
 
 [node name="Camper1" parent="." instance=ExtResource("6_8n84l")]
 position = Vector2(93, 42)
