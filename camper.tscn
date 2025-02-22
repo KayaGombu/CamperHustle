@@ -100,9 +100,8 @@ radius = 17.0
 height = 36.0
 
 [node name="Camper" type="CharacterBody2D"]
-position = Vector2(-1, 0)
+position = Vector2(-2, 0)
 script = ExtResource("1_u0dab")
-metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-2, 8)
@@ -122,7 +121,8 @@ stream = ExtResource("10_it6h6")
 [node name="PickUpRange" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PickUpRange"]
-position = Vector2(-1, 5)
+position = Vector2(-2, 5)
 shape = SubResource("CapsuleShape2D_x4jxi")
 
 [connection signal="body_entered" from="PickUpRange" to="." method="_on_pick_up_range_body_entered"]
+[connection signal="body_exited" from="PickUpRange" to="." method="_on_pick_up_range_body_exited"]

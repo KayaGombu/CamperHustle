@@ -11,6 +11,7 @@ var camperCount = 0
 func _ready() -> void:
 	player.pick_up_child.connect(_on_player_pick_up_child)
 	player.drop_child.connect(_on_player_drop_child)
+	
 func _physics_process(delta: float) -> void:
 	if following:
 		var direction = Input.get_vector("Left","Right","Up","Down")
@@ -25,7 +26,7 @@ func _on_player_drop_child():
 	inRange = false
 	
 func _on_pick_up_range_body_entered(body: Node2D) -> void:
-	if body.name == player.name:
+	if body.has_method("player"):
 		inRange = true
 func _on_cabin_body_entered(body: Node2D) -> void:
 	if body.has_method("camper"):
@@ -37,3 +38,7 @@ func _on_cabin_body_exited(body: Node2D) -> void:
 		camperCount -= 1
 		print("OUT")
 	
+
+
+func _on_pick_up_range_body_exited(body: Node2D) -> void:
+	inRange = false
