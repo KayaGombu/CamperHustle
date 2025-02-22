@@ -1,0 +1,46 @@
+[gd_scene load_steps=7 format=3 uid="uid://dikihejfvigca"]
+
+[ext_resource type="Script" path="res://bear_trap.gd" id="1_gamrw"]
+[ext_resource type="Texture2D" uid="uid://bvfghxh3ux35h" path="res://BearTrap_-_Closed.png" id="1_ygg7b"]
+[ext_resource type="Texture2D" uid="uid://15vgrg8h51v5" path="res://BearTrap.png" id="2_sr14g"]
+[ext_resource type="PackedScene" uid="uid://cnlp3sy4l6aj4" path="res://baby.tscn" id="2_unqwn"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_53n2q"]
+radius = 37.0
+height = 74.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_usigm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_ygg7b")
+}],
+"loop": true,
+"name": &"closed",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_sr14g")
+}],
+"loop": true,
+"name": &"open",
+"speed": 5.0
+}]
+
+[node name="BearTrap" type="Area2D"]
+position = Vector2(49, 43)
+script = ExtResource("1_gamrw")
+baby_scene = ExtResource("2_unqwn")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_53n2q")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(7, 14)
+scale = Vector2(1.7, 1.7)
+sprite_frames = SubResource("SpriteFrames_usigm")
+animation = &"open"
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

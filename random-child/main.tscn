@@ -1,0 +1,27 @@
+[gd_scene load_steps=6 format=3 uid="uid://cofk0l4s2kk6q"]
+
+[ext_resource type="PackedScene" uid="uid://xsv6sfs18jyx" path="res://player.tscn" id="1_k5c3n"]
+[ext_resource type="Script" path="res://main.gd" id="1_kscm0"]
+[ext_resource type="PackedScene" uid="uid://cnlp3sy4l6aj4" path="res://baby.tscn" id="2_ohf6q"]
+[ext_resource type="PackedScene" uid="uid://1u5kcwrkxqnd" path="res://spawn_area.tscn" id="3_8b83p"]
+[ext_resource type="PackedScene" uid="uid://73uln3xo55n6" path="res://bear_trap_spawn.tscn" id="5_2abtb"]
+
+[node name="Main" type="Node"]
+script = ExtResource("1_kscm0")
+
+[node name="Player" parent="." instance=ExtResource("1_k5c3n")]
+
+[node name="SpawnArea" parent="." instance=ExtResource("3_8b83p")]
+position = Vector2(349, 764)
+
+[node name="SpawnArea2" parent="." instance=ExtResource("3_8b83p")]
+position = Vector2(1313, 266)
+
+[node name="SpawnArea3" parent="." instance=ExtResource("3_8b83p")]
+position = Vector2(1656, 824)
+
+[node name="Baby" parent="." instance=ExtResource("2_ohf6q")]
+position = Vector2(99, 93)
+
+[node name="BearTrapSpawn" parent="." instance=ExtResource("5_2abtb")]
+position = Vector2(950, 550)

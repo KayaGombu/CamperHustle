@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://1u5kcwrkxqnd"]
+
+[ext_resource type="Script" path="res://spawn_area.gd" id="1_e02ww"]
+[ext_resource type="PackedScene" uid="uid://cnlp3sy4l6aj4" path="res://baby.tscn" id="2_7r85w"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4bxtx"]
+radius = 234.105
+
+[node name="SpawnArea" type="Area2D"]
+script = ExtResource("1_e02ww")
+baby_scene = ExtResource("2_7r85w")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -1)
+shape = SubResource("CircleShape2D_4bxtx")

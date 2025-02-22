@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://cnlp3sy4l6aj4"]
+
+[ext_resource type="Texture2D" uid="uid://382gvlx5yyqm" path="res://Screenshot_2025-02-05_142407-removebg-preview.png" id="1_1wwgb"]
+[ext_resource type="Script" path="res://baby.gd" id="1_i1fqo"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_q3sws"]
+radius = 52.0865
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_l03gv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_1wwgb")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Baby" type="CharacterBody2D"]
+script = ExtResource("1_i1fqo")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.400024, 0.187595)
+shape = SubResource("CircleShape2D_q3sws")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(1.45597, -4.4062)
+scale = Vector2(0.213733, 0.213733)
+sprite_frames = SubResource("SpriteFrames_l03gv")
