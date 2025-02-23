@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://ryj4jeoic5oq"]
+[gd_scene load_steps=20 format=3 uid="uid://ryj4jeoic5oq"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_8c20n"]
 [ext_resource type="AudioStream" uid="uid://ck6mfoni8hbf" path="res://Camper Hustle/Sound Effects/Background Noise -Music.mp3" id="1_nbwmi"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://bl3pmp2kuywru" path="res://Camper Hustle/survivalgame-terrian-water.png" id="10_sc8ew"]
 [ext_resource type="Texture2D" uid="uid://b1ql82ws7p4eu" path="res://Camper Hustle/survivalgame-terrian-defult.png" id="11_d4j8e"]
 [ext_resource type="Texture2D" uid="uid://brkubh035gh4r" path="res://Camper Hustle/Wood Floor.png" id="12_5porm"]
+[ext_resource type="PackedScene" uid="uid://cp2g67cvxkv5r" path="res://child_spawn_area.tscn" id="13_ap7hp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y3iop"]
 size = Vector2(103, 310)
@@ -3085,9 +3086,11 @@ z_index = 1
 position = Vector2(997, 314)
 
 [node name="Camper" parent="." instance=ExtResource("6_n1d7w")]
+visible = false
 position = Vector2(171, 152)
 
 [node name="Camper2" parent="." instance=ExtResource("6_n1d7w")]
+visible = false
 position = Vector2(813, 300)
 
 [node name="Cabin" type="Area2D" parent="."]
@@ -3117,6 +3120,18 @@ layer_0/tile_data = PackedInt32Array(0, 2, 0, 65536, 2, 1, 1, 65538, 0, 65537, 6
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Collisions"]
 polygon = PackedVector2Array(334, 0, 335, 56, 339, 67, 347, 71, 357, 76, 369, 75, 382, 74, 392, 74, 403, 75, 412, 76, 413, 85, 414, 96, 416, 103, 420, 110, 430, 114, 442, 114, 668, 113, 675, 112, 678, 105, 678, 96, 678, 78, 751, 78, 759, 77, 769, 74, 773, 68, 776, 62, 777, 52, 776, 0)
+
+[node name="ChildSpawnArea" parent="." instance=ExtResource("13_ap7hp")]
+position = Vector2(126, 523)
+
+[node name="ChildSpawnArea2" parent="." instance=ExtResource("13_ap7hp")]
+position = Vector2(515, 534)
+
+[node name="ChildSpawnArea3" parent="." instance=ExtResource("13_ap7hp")]
+position = Vector2(124, 303)
+
+[node name="ChildSpawnArea4" parent="." instance=ExtResource("13_ap7hp")]
+position = Vector2(238, 108)
 
 [connection signal="body_entered" from="Cabin" to="Camper" method="_on_cabin_body_entered"]
 [connection signal="body_exited" from="Cabin" to="Camper" method="_on_cabin_body_exited"]

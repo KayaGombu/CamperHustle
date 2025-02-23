@@ -1,10 +1,31 @@
 extends Node
 
+@onready var child_spawn_area: Area2D = $ChildSpawnArea
+@onready var child_spawn_area_2: Area2D = $ChildSpawnArea2
+@onready var child_spawn_area_3: Area2D = $ChildSpawnArea3
+@onready var child_spawn_area_4: Area2D = $ChildSpawnArea4
+
+
+
 var spawnable = [["Campfire", Vector2(583, 323), 4]]
 var fireNum = 1
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	$FireSpread.start(randi_range(240, 360))
+	
+	
+	#for child spawn
+	if child_spawn_area == null:
+		print("SpawnArea node not found")
+		return
+		
+	for _i in range(1):
+		child_spawn_area.spawn_child()
+		child_spawn_area_2.spawn_child()
+		child_spawn_area_3.spawn_child()
+		child_spawn_area_4.spawn_child()
+	
+	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
