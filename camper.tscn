@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://b6chbk7m4q6jh"]
+[gd_scene load_steps=25 format=3 uid="uid://b6chbk7m4q6jh"]
 
 [ext_resource type="Texture2D" uid="uid://bg6v6rsg0nt8x" path="res://Camper Hustle/Camper/Camper - Down Idle.png" id="1_j8n0x"]
 [ext_resource type="Script" path="res://camper.gd" id="1_v7cdh"]
@@ -21,6 +21,7 @@
 [ext_resource type="Texture2D" uid="uid://d1jtoxe5wmmmu" path="res://Camper Hustle/Camper/Camper - Sick - Up Idle.png" id="13_c4av5"]
 [ext_resource type="Texture2D" uid="uid://db6q6lfym4dmf" path="res://Camper Hustle/Camper/Camper - Sick - Up Walk - L.png" id="14_l42rw"]
 [ext_resource type="Texture2D" uid="uid://da6oeuuik8vap" path="res://Camper Hustle/Camper/Camper - Sick - Up Walk - R.png" id="15_p15hv"]
+[ext_resource type="Shape2D" path="res://camper.tres" id="22_vvir4"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jrb4x"]
 radius = 7.0
@@ -187,7 +188,7 @@ animations = [{
 }]
 
 [node name="Camper" type="CharacterBody2D"]
-position = Vector2(195, 153)
+position = Vector2(195, 149)
 script = ExtResource("1_v7cdh")
 metadata/_edit_group_ = true
 
@@ -197,7 +198,7 @@ shape = SubResource("CircleShape2D_jrb4x")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_drtht")
-animation = &"Crying"
+animation = &"Down Walk"
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("10_it6h6")
@@ -216,3 +217,12 @@ offset_bottom = -35.0
 text = "a"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="PickUpRange" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PickUpRange"]
+position = Vector2(-2, -2)
+shape = ExtResource("22_vvir4")
+
+[connection signal="body_entered" from="PickUpRange" to="." method="_on_pick_up_range_body_entered"]
+[connection signal="body_exited" from="PickUpRange" to="." method="_on_pick_up_range_body_exited"]

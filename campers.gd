@@ -43,7 +43,6 @@ func sickness():
 	while (campers[random][2] == "Dead"):
 		random = randi_range(0, a-1)
 	campers[random][2] = "Sick"
-	print(campers[random][0])
 	FS.emit(campers[random][0])
 
 func homesick():
@@ -52,7 +51,6 @@ func homesick():
 	while (campers[random][2] == "Dead"):
 		random = randi_range(0, a-1)
 	campers[random][2] = "Sick"
-	print(campers[random][0])
 	HS.emit(campers[random][0])
 
 func _on_camper_death(name):
