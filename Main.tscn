@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://ryj4jeoic5oq"]
+[gd_scene load_steps=23 format=3 uid="uid://ryj4jeoic5oq"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_8c20n"]
 [ext_resource type="AudioStream" uid="uid://ck6mfoni8hbf" path="res://Camper Hustle/Sound Effects/Background Noise -Music.mp3" id="1_nbwmi"]
@@ -14,6 +14,9 @@
 [ext_resource type="Texture2D" uid="uid://b1ql82ws7p4eu" path="res://Camper Hustle/World/survivalgame-terrian-defult.png" id="11_d4j8e"]
 [ext_resource type="Texture2D" uid="uid://brkubh035gh4r" path="res://Camper Hustle/World/Wood Floor.png" id="12_5porm"]
 [ext_resource type="Texture2D" uid="uid://dnw032m5scgiu" path="res://Camper Hustle/World/Screenshot 2025-02-22 151530.png" id="14_0pi1w"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ugfhm"]
+size = Vector2(223, 160)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y3iop"]
 size = Vector2(103, 310)
@@ -3509,6 +3512,13 @@ position = Vector2(583, 323)
 z_index = 1
 position = Vector2(997, 314)
 
+[node name="Infirmary" type="Area2D" parent="."]
+position = Vector2(513, 34)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Infirmary"]
+position = Vector2(-373.5, 66)
+shape = SubResource("RectangleShape2D_ugfhm")
+
 [node name="Cabin" type="Area2D" parent="."]
 position = Vector2(513, 34)
 script = ExtResource("7_mn4qw")
@@ -3546,6 +3556,9 @@ layer_0/tile_data = PackedInt32Array(0, 2621442, 0, 65536, 2621442, 1, 1, 268697
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Collisions"]
 position = Vector2(-1, 1)
 polygon = PackedVector2Array(334, 0, 335, 56, 339, 67, 347, 71, 357, 76, 369, 75, 382, 74, 392, 74, 403, 75, 412, 76, 413, 85, 414, 96, 416, 103, 420, 110, 430, 114, 442, 114, 668, 113, 675, 112, 678, 105, 678, 96, 678, 78, 751, 78, 759, 77, 769, 74, 773, 68, 776, 62, 777, 52, 776, 0)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Collisions"]
+polygon = PackedVector2Array(-1, 0, 1152, 0, 1153, 650, -3, 650, 0, 0, 0, -1, -1, 0, -15, 656, 62, 678, 1221, 695, 1242, -81, -86, -102)
 
 [connection signal="step" from="Player" to="Fire" method="_on_player_step"]
 [connection signal="putOut" from="Fire" to="." method="_on_fire_put_out"]

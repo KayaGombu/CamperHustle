@@ -47,11 +47,11 @@ func _on_continue_spread_timeout() -> void:
 	
 
 func _on_fire_put_out(name: Variant) -> void:
-	for x in spawnable.size()-1:
+	for x in spawnable.size():
 		if spawnable[x][0] == name:
 			spawnable.remove_at(x)
 	if(spawnable.size() == 1):
-		$ContinueSpread.stop()
-		$FireSpread.start(randi_range(5, 10))
+		$"../ContinueSpread".stop
+		$"../FireSpread".start(randi_range(240, 360))
 		spawnable = [["Campfire", Vector2(583, 323), 4]]
 		fireNum = 1

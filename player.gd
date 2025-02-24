@@ -4,12 +4,19 @@ extends CharacterBody2D
 var screen_size
 var direction
 var holding = false
+var phone = false
 signal pick_up_child
 signal drop_child
 signal step
+signal pick_up_phone
+signal give_phone
 
 func _ready() -> void:
 	screen_size = get_viewport_rect().size
+	var held = get_node("/root/Main/Campers")
+	held.give_player_phone.connect(_has_phone)
+	held.holding.connect(_holding)
+	held.empty.connect(_empty)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -54,10 +61,11 @@ func _process(delta: float) -> void:
 		idle()
 	if Input.is_action_just_pressed("pick_up"):
 		if not holding:
-			holding = true
 			pick_up_child.emit()
+			pick_up_phone.emit()
+		elif phone:
+			give_phone.emit()
 		else:
-			holding = false
 			drop_child.emit()
 
 func idle():
@@ -74,8 +82,17 @@ func idle():
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.has_method("fire"):
-		print("Fire")
 		step.emit()
+
+func _holding():
+	holding = true
+
+func _empty():
+	holding = false
+
+func _has_phone():
+	phone = true
+	holding = true
 
 func player():
 	pass
