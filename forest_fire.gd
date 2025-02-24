@@ -4,7 +4,7 @@ var spawnable = [["Campfire", Vector2(583, 323), 4]]
 var fireNum = 1
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	$"../FireSpread".start(randi_range(240, 360))
+	$"../FireSpread".start(randi_range(1, 2))
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -28,7 +28,7 @@ func SpawnFire():
 	obj.putOut.connect(_on_fire_put_out)
 	spawnable.append(["Fire"+str(fireNum), posi, 4])
 	fireNum += 1
-	$"../ContinueSpread".start(randi_range(10, 20))
+	$"../ContinueSpread".start(randi_range(1, 2))
 
 func setPosition(index):
 	var neg = randi_range(-1, 1)
@@ -45,11 +45,11 @@ func setPosition(index):
 			x = neg * randi_range(40, 80)
 			y = neg * randi_range(40, 80)
 			coords = spawnable[index][1] + Vector2(x, y)
-		elif Vector2(780, 115) >= coords && coords >= Vector2(334, 0):
+		elif Vector2(780, 115) <= coords && coords <= Vector2(334, 0):
 			x = neg * randi_range(40, 80)
 			y = neg * randi_range(40, 80)
 			coords = spawnable[index][1] + Vector2(x, y)
-		elif Vector2(1130, 610) >= coords && coords >= Vector2(20, 20):
+		elif Vector2(1130, 610) <= coords && coords <= Vector2(20, 20):
 			x = neg * randi_range(40, 80)
 			y = neg * randi_range(40, 80)
 			coords = spawnable[index][1] + Vector2(x, y)
