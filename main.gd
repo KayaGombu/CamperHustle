@@ -1,52 +1,10 @@
 extends Node
 
-<<<<<<< Updated upstream
-=======
-@onready var child_spawn_area: Area2D = $ChildSpawnArea
-@onready var child_spawn_area_2: Area2D = $ChildSpawnArea2
-@onready var child_spawn_area_3: Area2D = $ChildSpawnArea3
-@onready var child_spawn_area_4: Area2D = $ChildSpawnArea4
-
-@onready var bear_trap_spawner: Area2D = $BearTrapSpawner
-@onready var bear_trap_spawner_2: Area2D = $BearTrapSpawner2
-@onready var bear_trap_spawner_3: Area2D = $BearTrapSpawner3
-@onready var bear_trap_spawner_4: Area2D = $BearTrapSpawner4
-
-
-
-
->>>>>>> Stashed changes
 var spawnable = [["Campfire", Vector2(583, 323), 4]]
 var fireNum = 1
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	$FireSpread.start(randi_range(240, 360))
-<<<<<<< Updated upstream
-=======
-	
-	#show hud
-	$ColorRect.show()
-	$HUD.show()
-	
-	#for child spawn
-	if child_spawn_area == null:
-		print("SpawnArea node not found")
-		return
-		
-	for _i in range(1):
-		child_spawn_area.spawn_child()
-		child_spawn_area_2.spawn_child()
-		child_spawn_area_3.spawn_child()
-		child_spawn_area_4.spawn_child()
-	
-	for _i in range(2):
-		bear_trap_spawner.spawn_trap()
-		bear_trap_spawner_2.spawn_trap()
-		bear_trap_spawner_3.spawn_trap()
-		bear_trap_spawner_4.spawn_trap()
-	
->>>>>>> Stashed changes
-
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -98,15 +56,3 @@ func _on_fire_put_out(name: Variant) -> void:
 		$FireSpread.start(randi_range(5, 10))
 		spawnable = [["Campfire", Vector2(583, 323), 4]]
 		fireNum = 1
-
-
-func game_over():
-	pass
-
-func new_game():
-	
-	$Player.position = $StartPosition.position
-	$StartTimer.start()
-	$HUD.show_message("Save the campers!")
-	$HUD.hide()
-	get_tree().call_group("campers", "queue_free")

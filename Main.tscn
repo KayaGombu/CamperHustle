@@ -1,8 +1,4 @@
-<<<<<<< Updated upstream
 [gd_scene load_steps=19 format=3 uid="uid://ryj4jeoic5oq"]
-=======
-[gd_scene load_steps=23 format=3 uid="uid://ryj4jeoic5oq"]
->>>>>>> Stashed changes
 
 [ext_resource type="Script" path="res://main.gd" id="1_8c20n"]
 [ext_resource type="AudioStream" uid="uid://ck6mfoni8hbf" path="res://Camper Hustle/Sound Effects/Background Noise -Music.mp3" id="1_nbwmi"]
@@ -16,13 +12,6 @@
 [ext_resource type="Texture2D" uid="uid://bl3pmp2kuywru" path="res://Camper Hustle/survivalgame-terrian-water.png" id="10_sc8ew"]
 [ext_resource type="Texture2D" uid="uid://b1ql82ws7p4eu" path="res://Camper Hustle/survivalgame-terrian-defult.png" id="11_d4j8e"]
 [ext_resource type="Texture2D" uid="uid://brkubh035gh4r" path="res://Camper Hustle/Wood Floor.png" id="12_5porm"]
-<<<<<<< Updated upstream
-=======
-[ext_resource type="PackedScene" uid="uid://cp2g67cvxkv5r" path="res://child_spawn_area.tscn" id="13_ap7hp"]
-[ext_resource type="PackedScene" uid="uid://2uesfg0urdfn" path="res://hud.tscn" id="14_afufs"]
-[ext_resource type="PackedScene" uid="uid://djod8ammsfafn" path="res://bear_trap_spawner.tscn" id="15_woep4"]
-[ext_resource type="PackedScene" uid="uid://bdu16jybw6l4c" path="res://wall.tscn" id="16_4clui"]
->>>>>>> Stashed changes
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y3iop"]
 size = Vector2(103, 310)
@@ -3082,13 +3071,6 @@ sources/3 = SubResource("TileSetAtlasSource_uoexv")
 y_sort_enabled = true
 script = ExtResource("1_8c20n")
 
-[node name="ColorRect" type="ColorRect" parent="."]
-visible = false
-custom_minimum_size = Vector2(500, 500)
-offset_right = 1150.0
-offset_bottom = 650.0
-color = Color(0.396975, 0.434591, 0.828271, 1)
-
 [node name="Music" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("1_nbwmi")
 
@@ -3102,12 +3084,7 @@ position = Vector2(583, 323)
 z_index = 1
 position = Vector2(997, 314)
 
-<<<<<<< Updated upstream
 [node name="Camper" parent="." instance=ExtResource("6_n1d7w")]
-=======
-[node name="Camper" parent="." groups=["campers"] instance=ExtResource("6_n1d7w")]
-visible = false
->>>>>>> Stashed changes
 position = Vector2(171, 152)
 
 [node name="Camper2" parent="." instance=ExtResource("6_n1d7w")]
@@ -3141,62 +3118,8 @@ layer_0/tile_data = PackedInt32Array(0, 2, 0, 65536, 2, 1, 1, 65538, 0, 65537, 6
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Collisions"]
 polygon = PackedVector2Array(334, 0, 335, 56, 339, 67, 347, 71, 357, 76, 369, 75, 382, 74, 392, 74, 403, 75, 412, 76, 413, 85, 414, 96, 416, 103, 420, 110, 430, 114, 442, 114, 668, 113, 675, 112, 678, 105, 678, 96, 678, 78, 751, 78, 759, 77, 769, 74, 773, 68, 776, 62, 777, 52, 776, 0)
 
-<<<<<<< Updated upstream
-=======
-[node name="ChildSpawnArea" parent="." instance=ExtResource("13_ap7hp")]
-position = Vector2(126, 523)
-
-[node name="ChildSpawnArea2" parent="." instance=ExtResource("13_ap7hp")]
-position = Vector2(515, 534)
-
-[node name="ChildSpawnArea3" parent="." instance=ExtResource("13_ap7hp")]
-position = Vector2(124, 303)
-
-[node name="ChildSpawnArea4" parent="." instance=ExtResource("13_ap7hp")]
-position = Vector2(240, 136)
-
-[node name="HUD" parent="." instance=ExtResource("14_afufs")]
-visible = false
-
-[node name="StartTimer" type="Timer" parent="."]
-wait_time = 2.0
-one_shot = true
-
-[node name="StartPosition" type="Marker2D" parent="."]
-position = Vector2(997, 314)
-
-[node name="BearTrapSpawner" parent="." instance=ExtResource("15_woep4")]
-position = Vector2(807, 482)
-
-[node name="BearTrapSpawner2" parent="." instance=ExtResource("15_woep4")]
-position = Vector2(413, 234)
-
-[node name="BearTrapSpawner3" parent="." instance=ExtResource("15_woep4")]
-position = Vector2(322, 466)
-
-[node name="BearTrapSpawner4" parent="." instance=ExtResource("15_woep4")]
-position = Vector2(777, 220)
-
-[node name="Wall" parent="." instance=ExtResource("16_4clui")]
-position = Vector2(-31, 344)
-scale = Vector2(1, 9.90338)
-
-[node name="Wall2" parent="." instance=ExtResource("16_4clui")]
-position = Vector2(544, 8)
-scale = Vector2(19.893, 1)
-
-[node name="Wall3" parent="." instance=ExtResource("16_4clui")]
-position = Vector2(1184, 312)
-scale = Vector2(1, 10.8763)
-
-[node name="Wall4" parent="." instance=ExtResource("16_4clui")]
-position = Vector2(576, 680)
-scale = Vector2(21.04, 1)
-
->>>>>>> Stashed changes
 [connection signal="body_entered" from="Cabin" to="Camper" method="_on_cabin_body_entered"]
 [connection signal="body_exited" from="Cabin" to="Camper" method="_on_cabin_body_exited"]
 [connection signal="put_out" from="Fire" to="." method="_on_fire_put_out"]
 [connection signal="timeout" from="FireSpread" to="." method="_on_fire_spread_timeout"]
 [connection signal="timeout" from="ContinueSpread" to="." method="_on_continue_spread_timeout"]
-[connection signal="start_game" from="HUD" to="." method="new_game"]
