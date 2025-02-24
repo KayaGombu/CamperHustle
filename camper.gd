@@ -1,148 +1,119 @@
-extends CharacterBody2D
-signal death(name)
-signal survive(name)
-signal in_cabin(name)
-signal out_cabin(name)
-signal picked_up
-signal dropped
+extends Node2D
+signal FS(name)
+signal HS(name)
+signal useless
+signal give_player_phone
 
-<<<<<<< HEAD
-
-@export var speed = 200
-
-@onready var player = $"../Player"
-var inRange = false
-var following = false
-var camperCount = 0
-	
+var campers = []
+var alive = 7
+var playcated = 0
+@onready var phone = preload("res://phone.tscn").instantiate()
+var playerHolding = false
+signal holding
+signal empty
+# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	player.pick_up_child.connect(_on_player_pick_up_child)
-	player.drop_child.connect(_on_player_drop_child)
-	
-func _physics_process(delta: float) -> void:
-	if following:
-		var direction = Input.get_vector("Left","Right","Up","Down")
-		velocity = direction * speed
-		move_and_slide()
-
-func _on_player_pick_up_child():
-	if inRange:
-		print("pick up")
-		following = true
-func _on_player_drop_child():
-	print("drop")
-	following = false
-	inRange = false
-	
-#Checks whether the player is in range
-func _on_pick_up_range_body_entered(body: Node2D) -> void:
-	if body.has_method("player"):
-		print("in range")
-		inRange = true
-=======
-@export var speed = 200
-var camperCount = 0
-@export var timeTilDeath = 10
-var inRange = false
-var following = false
-var status = "Good"
-
-func _ready() -> void:
-	var player = get_node("/root/Main/Player")
-	var heal = get_node("/root/Main/Infirmary")
-	var playcate = get_node("/root/Main/Cabin")
-	var parent = get_node("/root/Main/Campers")
-	player.pick_up_child.connect(_on_player_pick_up_child)
-	player.drop_child.connect(_on_player_drop_child)
-	player.give_phone.connect(_give_camper_phone)
-	heal.body_entered.connect(_on_camper_entered)
-	playcate.body_entered.connect(_on_cabin_body_entered)
-	playcate.body_exited.connect(_on_cabin_body_exited)
-	parent.FS.connect(_get_sick)
-	parent.HS.connect(_get_homesick)
-	$AnimatedSprite2D.play()
+	phone.name = "Phone"
+	phone.position = Vector2(-100, -100)
+	self.add_child(phone)
+	get_child(0).has_phone.connect(_player_has_phone)
+	SpawnCampers()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	$Timer.position = $TimerPlacement.position
-	if following:
-		var direction = Input.get_vector("Left","Right","Up","Down")
-		velocity = direction * speed
-		move_and_slide()
-	if(status == "Good"):
-		$Timer.visible = false
-		$AnimatedSprite2D.animation = "Down Walk"
-	elif(status == "Sick"):
-		$AnimatedSprite2D.animation = "Sick - Down Walk"
-		$Timer.text = str(round($TilDeath.time_left))
-	elif(status == "Homesick"):
-		$AnimatedSprite2D.animation = "Crying"
-		$Timer.text = str(round($TilDeath.time_left))
-	if $TilDeath.time_left == 0 && (status == "Sick" || status == "Homesick"):
-		death.emit(self.name)
-		queue_free()
->>>>>>> Lucas'-Branch
+	if playcated == alive:
+		print("Player saved " + str(playcated) + " campers")
+		$"../FireSpread".stop()
+		$"../Child Event".stop()
+	elif alive == 0:
+		print("Game Over")
 
-#Checks when the player leaves range
-func _on_pick_up_range_body_exited(body: Node2D) -> void:
-	if body.has_method("player"):
-		print("leaving")
-		inRange = false
-func _on_cabin_body_entered(body: Node2D) -> void:
-	if body.name == self.name:
-		in_cabin.emit(self.name)
+func SpawnCampers():
+	for i in 7:
+		var pre = preload("res://camper.tscn")
+		var obj = pre.instantiate()
+		obj.name = "Camper"+str(i+1)
+		var x = randi_range(0, 530)
+		var y = randi_range(0, 648)
+		while Vector2(530, 115) >= Vector2(x, y) && Vector2(x, y) >= Vector2(333, 0):
+			x = randi_range(0, 530)
+			y = randi_range(0, 648)
+		obj.position = Vector2(x, y)
+		self.add_child(obj)
+		campers.append([obj.name, obj.position, "Alive", false])
+		#Name, Position, Status, Playcated
+		obj.death.connect(_on_camper_death)
+		obj.survive.connect(_on_camper_survival)
+		obj.in_cabin.connect(_enter_cabin)
+		obj.out_cabin.connect(_exit_cabin)
+		obj.picked_up.connect(_on_picked_up)
+		obj.dropped.connect(_on_dropped)
+	$"../Child Event".start(randi_range(10, 20))
 
-func _on_cabin_body_exited(body: Node2D) -> void:
-	if body.name == self.name:
-		out_cabin.emit(self.name)
+func _on_child_event_timeout() -> void:
+	var event = randi_range(0, 1)
+	if event == 0:
+		sickness()
+	elif event == 1:
+		homesick()
 
-func _get_sick(name):
-	if self.name == name:
-		status = "Sick"
-		$Timer.visible = true
-		$TilDeath.start(timeTilDeath)
+func sickness():
+	var a = campers.size()
+	var random = randi_range(0, a-1)
+	while (campers[random][2] == "Dead"):
+		random = randi_range(0, a-1)
+	FS.emit(campers[random][0])
 
-func _get_homesick(name):
-	if self.name == name:
-		status = "Homesick"
-		if following:
-			following = false
-			dropped.emit()
-		$Timer.visible = true
-		$TilDeath.start(timeTilDeath)
+func homesick():
+	var a = campers.size()
+	var random = randi_range(0, a-1)
+	while (campers[random][2] == "Dead"):
+		random = randi_range(0, a-1)
+	var x
+	var y
+	if !campers[random][3]:
+		x = randi_range(1070, 1120)
+		y = randi_range(170, 430)
+	else:
+		x = randi_range(27, 491)
+		y = randi_range(236, 630)
+	get_child(0).position = Vector2(x, y)
+	HS.emit(campers[random][0])
 
-func _on_player_pick_up_child():
-	if inRange && status != "Homesick":
-		following = true
-		picked_up.emit()
+func _on_camper_death(name):
+	for i in campers.size():
+		if campers[i][0] == name:
+			campers[i][2] = "Dead"
+			alive -= 1
+	useless.emit()
+	get_child(0).position = Vector2(-100, -100)
+	$"../Child Event".start(randi_range(10, 20))
 
-func _on_player_drop_child():
-	following = false
-	inRange = false
-	dropped.emit()
+func _on_camper_survival(name):
+	useless.emit()
+	get_child(0).position = Vector2(-100, -100)
+	$"../Child Event".start(randi_range(10, 20))
 
-#Checks whether the player is in range
-func _on_pick_up_range_body_entered(body: Node2D) -> void:
-	if body.has_method("player"):
-		inRange = true
+func _enter_cabin(name):
+	playcated += 1
+	for i in campers.size():
+		if campers[i][0] == name:
+			campers[i][3] = true
 
-#Checks when the player leaves range
-func _on_pick_up_range_body_exited(body: Node2D) -> void:
-	if body.has_method("player"):
-		inRange = false
+func _exit_cabin(name):
+	playcated -= 1
+	for i in campers.size():
+		if campers[i][0] == name:
+			campers[i][3] = false
 
-func _on_camper_entered(body: Node2D):
-	if body.has_method("camper") && status == "Sick":
-		following = false
-		status = "Good"
-		$TilDeath.stop()
-		survive.emit(self.name)
+func _on_picked_up():
+	if !playerHolding:
+		playerHolding = true
+		holding.emit()
 
-func _give_camper_phone():
-	if status == "Homesick" && inRange:
-		status = "Good"
-		$TilDeath.stop()
-		survive.emit(self.name)
+func _on_dropped():
+	playerHolding = false
+	empty.emit()
 
-func camper():
-	pass
+func _player_has_phone():
+	give_player_phone.emit()
