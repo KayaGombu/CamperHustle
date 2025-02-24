@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://djod8ammsfafn"]
+
+[ext_resource type="Script" path="res://bear_trap_spawner.gd" id="1_du8yi"]
+[ext_resource type="PackedScene" uid="uid://5bvq0m8gpcyp" path="res://beartrap.tscn" id="2_jtoxa"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mcr15"]
+radius = 90.5538
+
+[node name="BearTrapSpawner" type="Area2D"]
+script = ExtResource("1_du8yi")
+bear_trap_scene = ExtResource("2_jtoxa")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_mcr15")
