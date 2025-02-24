@@ -51,7 +51,7 @@ func SpawnCampers():
 	$"../Child Event".start(randi_range(10, 20))
 
 func _on_child_event_timeout() -> void:
-	var event = randi_range(1, 1)
+	var event = randi_range(0, 1)
 	if event == 0:
 		sickness()
 	elif event == 1:
