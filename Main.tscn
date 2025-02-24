@@ -3560,6 +3560,9 @@ polygon = PackedVector2Array(334, 0, 335, 56, 339, 67, 347, 71, 357, 76, 369, 75
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Collisions"]
 polygon = PackedVector2Array(-1, 0, 1152, 0, 1153, 650, -3, 650, 0, 0, 0, -1, -1, 0, -15, 656, 62, 678, 1221, 695, 1242, -81, -86, -102)
 
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(780, 115)
+
 [connection signal="step" from="Player" to="Fire" method="_on_player_step"]
 [connection signal="putOut" from="Fire" to="." method="_on_fire_put_out"]
 [connection signal="timeout" from="FireSpread" to="ForestFire" method="_on_fire_spread_timeout"]
