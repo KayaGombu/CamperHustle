@@ -38,7 +38,7 @@ func SpawnFire():
 		posi = spawnable[random][1] + Vector2(x, y)
 	obj.position = posi
 	$ForestFire.add_child(obj)
-	obj.putOut.connect(_on_fire_put_out)
+	obj.put_out.connect(_on_fire_put_out)
 	spawnable.append(["Fire"+str(fireNum), posi, 4])
 	fireNum += 1
 	$ContinueSpread.start(randi_range(10, 20))
