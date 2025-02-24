@@ -17,6 +17,7 @@ func _ready() -> void:
 	phone.position = Vector2(-100, -100)
 	self.add_child(phone)
 	get_child(0).has_phone.connect(_player_has_phone)
+	get_child(0).dropped_phone.connect(_on_dropped)
 	SpawnCampers()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

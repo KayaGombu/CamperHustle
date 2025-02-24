@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://bs5ku1ca2buak"]
+[gd_scene load_steps=5 format=3 uid="uid://do5hb83oj3e5m"]
 
 [ext_resource type="Script" path="res://phone.gd" id="1_gl7kl"]
 [ext_resource type="Texture2D" uid="uid://c7hrddytr6lqh" path="res://Camper Hustle/Camper/Phone.png" id="1_m8mn7"]

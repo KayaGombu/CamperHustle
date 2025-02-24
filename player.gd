@@ -89,6 +89,7 @@ func _holding():
 
 func _empty():
 	holding = false
+	phone = false
 
 func _has_phone():
 	phone = true

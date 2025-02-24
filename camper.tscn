@@ -21,7 +21,7 @@
 [ext_resource type="Texture2D" uid="uid://d1jtoxe5wmmmu" path="res://Camper Hustle/Camper/Camper - Sick - Up Idle.png" id="13_c4av5"]
 [ext_resource type="Texture2D" uid="uid://db6q6lfym4dmf" path="res://Camper Hustle/Camper/Camper - Sick - Up Walk - L.png" id="14_l42rw"]
 [ext_resource type="Texture2D" uid="uid://da6oeuuik8vap" path="res://Camper Hustle/Camper/Camper - Sick - Up Walk - R.png" id="15_p15hv"]
-[ext_resource type="Shape2D" uid="uid://n6x55ralki1b" path="res://camper.tres" id="22_vvir4"]
+[ext_resource type="Shape2D" path="res://camper.tres" id="22_vvir4"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jrb4x"]
 radius = 7.0

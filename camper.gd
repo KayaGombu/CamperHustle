@@ -93,7 +93,6 @@ func _on_pick_up_range_body_exited(body: Node2D) -> void:
 
 func _on_camper_entered(body: Node2D):
 	if body.has_method("camper") && status == "Sick":
-		following = false
 		status = "Good"
 		$TilDeath.stop()
 		survive.emit(self.name)

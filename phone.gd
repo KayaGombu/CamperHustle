@@ -1,5 +1,6 @@
 extends Node2D
 signal has_phone
+signal dropped_phone
 
 var inRange = false
 var following = false
@@ -31,3 +32,4 @@ func _on_pick_up_range_body_exited(body: Node2D) -> void:
 
 func _on_camper_death():
 	following = false
+	dropped_phone.emit()
