@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://brkubh035gh4r"
-path="res://.godot/imported/Wood Floor.png-7c2d1e8747ffe6a383408b722b647a4a.ctex"
+uid="uid://bd1vs7xe408vh"
+path="res://.godot/imported/survivalgame-trees.png-6723d7e549defcef4d284844bb14029c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Camper Hustle/Wood Floor.png"
-dest_files=["res://.godot/imported/Wood Floor.png-7c2d1e8747ffe6a383408b722b647a4a.ctex"]
+source_file="res://Camper Hustle/World/survivalgame-trees.png"
+dest_files=["res://.godot/imported/survivalgame-trees.png-6723d7e549defcef4d284844bb14029c.ctex"]
 
 [params]
 

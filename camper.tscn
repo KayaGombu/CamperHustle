@@ -1,22 +1,41 @@
-[gd_scene load_steps=16 format=3 uid="uid://b6chbk7m4q6jh"]
+[gd_scene load_steps=25 format=3 uid="uid://b6chbk7m4q6jh"]
 
 [ext_resource type="Texture2D" uid="uid://bg6v6rsg0nt8x" path="res://Camper Hustle/Camper/Camper - Down Idle.png" id="1_j8n0x"]
-[ext_resource type="Script" path="res://camper.gd" id="1_u0dab"]
+[ext_resource type="Script" path="res://camper.gd" id="1_v7cdh"]
+[ext_resource type="Texture2D" uid="uid://djoi7t86yxsns" path="res://Camper Hustle/Camper/Camper - Crying.png" id="2_4alx2"]
 [ext_resource type="Texture2D" uid="uid://bgcd0yv27yjrk" path="res://Camper Hustle/Camper/Camper - Down Walk L.png" id="2_ng4vm"]
 [ext_resource type="Texture2D" uid="uid://d0m2lwfo13k4g" path="res://Camper Hustle/Camper/Camper - Down Walk R.png" id="3_inwei"]
 [ext_resource type="Texture2D" uid="uid://crngysso2txen" path="res://Camper Hustle/Camper/Camper - Side Idle.png" id="4_ee8u2"]
 [ext_resource type="Texture2D" uid="uid://woou3bao4tm7" path="res://Camper Hustle/Camper/Camper - Up Idle.png" id="5_u11gt"]
 [ext_resource type="Texture2D" uid="uid://drmxcfwssn712" path="res://Camper Hustle/Camper/Camper - Side Walk - L.png" id="6_dv08c"]
+[ext_resource type="Texture2D" uid="uid://ci0ri6nigsa8g" path="res://Camper Hustle/Camper/Camper - Sick - Down Idle.png" id="7_21gp5"]
 [ext_resource type="Texture2D" uid="uid://cqk4f1kkbj2g8" path="res://Camper Hustle/Camper/Camper - Side Walk - R.png" id="7_jbh71"]
 [ext_resource type="Texture2D" uid="uid://deb104gi4dvqp" path="res://Camper Hustle/Camper/Camper - Up Walk L.png" id="8_hvofy"]
+[ext_resource type="Texture2D" uid="uid://0s4pqxsq2lua" path="res://Camper Hustle/Camper/Camper - Sick - Down Walk - L.png" id="8_komox"]
 [ext_resource type="Texture2D" uid="uid://cvkdrgldua4iy" path="res://Camper Hustle/Camper/Camper - Up Walk R.png" id="9_bih68"]
+[ext_resource type="Texture2D" uid="uid://o2hew7y33vcd" path="res://Camper Hustle/Camper/Camper - Sick - Down Walk - R.png" id="9_vsjh7"]
+[ext_resource type="Texture2D" uid="uid://bdqlesmw3edrt" path="res://Camper Hustle/Camper/Camper - Sick - Side Idle.png" id="10_h5wb3"]
 [ext_resource type="AudioStream" uid="uid://cqxvaqidi8sp6" path="res://Camper Hustle/Sound Effects/Footsteps.wav" id="10_it6h6"]
+[ext_resource type="Texture2D" uid="uid://dpnj6x8aiyl5p" path="res://Camper Hustle/Camper/Camper - Sick - Side Walk - L.png" id="11_iai47"]
+[ext_resource type="Texture2D" uid="uid://bufyf5tvbsenv" path="res://Camper Hustle/Camper/Camper - Sick - Side Walk - R.png" id="12_lvdf0"]
+[ext_resource type="Texture2D" uid="uid://d1jtoxe5wmmmu" path="res://Camper Hustle/Camper/Camper - Sick - Up Idle.png" id="13_c4av5"]
+[ext_resource type="Texture2D" uid="uid://db6q6lfym4dmf" path="res://Camper Hustle/Camper/Camper - Sick - Up Walk - L.png" id="14_l42rw"]
+[ext_resource type="Texture2D" uid="uid://da6oeuuik8vap" path="res://Camper Hustle/Camper/Camper - Sick - Up Walk - R.png" id="15_p15hv"]
+[ext_resource type="Shape2D" uid="uid://n6x55ralki1b" path="res://camper.tres" id="22_vvir4"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jrb4x"]
 radius = 7.0
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_drtht"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_4alx2")
+}],
+"loop": true,
+"name": &"Crying",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("1_j8n0x")
@@ -32,7 +51,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"Down Walk",
-"speed": 3.0
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -60,6 +79,81 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("7_21gp5")
+}],
+"loop": true,
+"name": &"Sick - Down Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_21gp5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_komox")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_21gp5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_vsjh7")
+}],
+"loop": true,
+"name": &"Sick - Down Walk",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_h5wb3")
+}],
+"loop": true,
+"name": &"Sick - Side Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_h5wb3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_iai47")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_h5wb3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_lvdf0")
+}],
+"loop": true,
+"name": &"Sick - Side Walk",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("13_c4av5")
+}],
+"loop": true,
+"name": &"Sick - Up Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("13_c4av5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_l42rw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_c4av5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_p15hv")
+}],
+"loop": true,
+"name": &"Sick - Up Walk",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": ExtResource("4_ee8u2")
 }, {
 "duration": 1.0,
@@ -73,7 +167,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"Side Walk",
-"speed": 3.0
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -90,7 +184,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"Up Walk",
-"speed": 3.0
+"speed": 5.0
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ogt6f"]
@@ -100,8 +194,8 @@ radius = 17.0
 height = 36.0
 
 [node name="Camper" type="CharacterBody2D"]
-position = Vector2(-1, 0)
-script = ExtResource("1_u0dab")
+position = Vector2(195, 149)
+script = ExtResource("1_v7cdh")
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -119,11 +213,26 @@ shape = SubResource("CircleShape2D_ogt6f")
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("10_it6h6")
 
+[node name="TilDeath" type="Timer" parent="."]
+one_shot = true
+
+[node name="TimerPlacement" type="Marker2D" parent="."]
+position = Vector2(-16, -58)
+
+[node name="Timer" type="Label" parent="."]
+offset_left = -16.0
+offset_top = -58.0
+offset_right = 10.0
+offset_bottom = -35.0
+text = "a"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="PickUpRange" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PickUpRange"]
-position = Vector2(-1, 5)
-shape = SubResource("CapsuleShape2D_x4jxi")
+position = Vector2(-2, -2)
+shape = ExtResource("22_vvir4")
 
 [connection signal="body_entered" from="PickUpRange" to="." method="_on_pick_up_range_body_entered"]
 [connection signal="body_exited" from="PickUpRange" to="." method="_on_pick_up_range_body_exited"]
