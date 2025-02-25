@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://ryj4jeoic5oq"]
+[gd_scene load_steps=29 format=3 uid="uid://ryj4jeoic5oq"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_8c20n"]
 [ext_resource type="AudioStream" uid="uid://ck6mfoni8hbf" path="res://Camper Hustle/Sound Effects/Background Noise -Music.mp3" id="1_nbwmi"]
@@ -16,12 +16,8 @@
 [ext_resource type="Texture2D" uid="uid://dnw032m5scgiu" path="res://Camper Hustle/World/Screenshot 2025-02-22 151530.png" id="14_0pi1w"]
 [ext_resource type="PackedScene" uid="uid://dxtcexsdygp02" path="res://bear_trap_spawn.tscn" id="15_w38up"]
 [ext_resource type="PackedScene" uid="uid://blasi6qisqybn" path="res://hud.tscn" id="16_up5tf"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4hlx4"]
-bg_color = Color(0.219501, 0.219501, 0.219501, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_77051"]
-bg_color = Color(0.883974, 0.43158, 0.0792697, 1)
+[ext_resource type="Script" path="res://health_bar.gd" id="17_5m4ur"]
+[ext_resource type="PackedScene" uid="uid://5bvq0m8gpcyp" path="res://beartrap.tscn" id="18_buipj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ugfhm"]
 size = Vector2(223, 160)
@@ -3503,6 +3499,12 @@ sources/2 = SubResource("TileSetAtlasSource_3ctr3")
 sources/3 = SubResource("TileSetAtlasSource_uoexv")
 sources/4 = SubResource("TileSetAtlasSource_ia341")
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4hlx4"]
+bg_color = Color(0.219501, 0.219501, 0.219501, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_77051"]
+bg_color = Color(0.883974, 0.43158, 0.0792697, 1)
+
 [node name="Main" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_8c20n")
@@ -3525,17 +3527,6 @@ position = Vector2(583, 323)
 [node name="Player" parent="." instance=ExtResource("2_0vlpw")]
 z_index = 1
 position = Vector2(997, 314)
-
-[node name="CanvasLayer" type="CanvasLayer" parent="Player"]
-
-[node name="HealthBar" type="ProgressBar" parent="Player/CanvasLayer"]
-offset_left = 832.0
-offset_top = 8.0
-offset_right = 1128.0
-offset_bottom = 64.0
-theme_override_styles/background = SubResource("StyleBoxFlat_4hlx4")
-theme_override_styles/fill = SubResource("StyleBoxFlat_77051")
-value = 10.0
 
 [node name="Infirmary" type="Area2D" parent="."]
 position = Vector2(513, 34)
@@ -3602,6 +3593,7 @@ position = Vector2(816, 192)
 position = Vector2(336, 512)
 
 [node name="HUD" parent="." instance=ExtResource("16_up5tf")]
+visible = false
 
 [node name="StartPosition" type="Marker2D" parent="."]
 position = Vector2(997, 314)
@@ -3609,6 +3601,21 @@ position = Vector2(997, 314)
 [node name="StartTimer" type="Timer" parent="."]
 wait_time = 2.0
 one_shot = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HealthBar" type="ProgressBar" parent="CanvasLayer"]
+offset_left = 832.0
+offset_top = 8.0
+offset_right = 1128.0
+offset_bottom = 64.0
+theme_override_styles/background = SubResource("StyleBoxFlat_4hlx4")
+theme_override_styles/fill = SubResource("StyleBoxFlat_77051")
+value = 10.0
+script = ExtResource("17_5m4ur")
+
+[node name="Beartrap" parent="." instance=ExtResource("18_buipj")]
+position = Vector2(552, 624)
 
 [connection signal="step" from="Player" to="Fire" method="_on_player_step"]
 [connection signal="timeout" from="FireSpread" to="ForestFire" method="_on_fire_spread_timeout"]

@@ -3,14 +3,20 @@ extends CanvasLayer
 signal start_game
 @onready var colorRect = $"../ColorRect"
 
+var is_game_frozen = true
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	
+	$Message.text = "Press Start to Begin"
+	$Message.show()
+	$StartButton.show()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	if is_game_frozen:
+		return
 
 
 func show_message(text):
@@ -32,9 +38,6 @@ func _on_start_button_pressed() -> void:
 	$StartButton.hide()
 	colorRect.hide()
 	$Message.hide()
+	
 	start_game.emit()
 	
-
-
-func _on_timer_timeout() -> void:
-	$Message.hide()

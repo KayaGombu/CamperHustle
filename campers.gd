@@ -11,6 +11,11 @@ var playcated = 0
 var playerHolding = false
 signal holding
 signal empty
+
+
+
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	phone.name = "Phone"
@@ -19,6 +24,8 @@ func _ready() -> void:
 	get_child(0).has_phone.connect(_player_has_phone)
 	get_child(0).dropped_phone.connect(_on_dropped)
 	SpawnCampers()
+	
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -86,9 +93,13 @@ func _on_camper_death(name):
 		if campers[i][0] == name:
 			campers[i][2] = "Dead"
 			alive -= 1
+			$"../Player".hurtByCamperDeath()
+			
 	useless.emit()
 	get_child(0).position = Vector2(-100, -100)
 	$"../Child Event".start(randi_range(10, 20))
+	
+	
 
 func _on_camper_survival(name):
 	useless.emit()

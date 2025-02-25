@@ -17,7 +17,7 @@ signal give_phone
 @onready var currentHealth: int = maxHealth
 @onready var health_bar: ProgressBar = $CanvasLayer/HealthBar
 var isHurt = false
-
+signal healthChanged
 
 
 func _ready() -> void:
@@ -27,8 +27,6 @@ func _ready() -> void:
 	held.holding.connect(_holding)
 	held.empty.connect(_empty)
 	
-	
-	health_bar.value = maxHealth
 	
 
 
@@ -117,9 +115,9 @@ func player():
 func hurtByCamperDeath():
 	print("hurt called")
 	currentHealth -= 15
-	health_bar.value = currentHealth
+	
 	if currentHealth < 0:
 		currentHealth = maxHealth
 	
 	isHurt = true
-	
+	healthChanged.emit()
