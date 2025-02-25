@@ -1,8 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://5bvq0m8gpcyp"]
+[gd_scene load_steps=9 format=3 uid="uid://5bvq0m8gpcyp"]
 
 [ext_resource type="Texture2D" uid="uid://dysjymcif5mnw" path="res://Camper Hustle/BearTrap/BearTrap - Closed.png" id="1_s1avp"]
+[ext_resource type="Script" path="res://beartrap.gd" id="1_turss"]
 [ext_resource type="Texture2D" uid="uid://bsiofl5l8wo55" path="res://Camper Hustle/BearTrap/BearTrap.png" id="2_87y0k"]
 [ext_resource type="AudioStream" uid="uid://4l8qpvpqdr85" path="res://Camper Hustle/Sound Effects/BearTrap.mp3" id="3_c4lfc"]
+[ext_resource type="Script" path="res://area_2d.gd" id="5_16cl0"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_bmn48"]
 animations = [{
@@ -24,10 +26,13 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4hxjj"]
-radius = 21.0238
+radius = 18.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_uc6ba"]
+radius = 24.0208
 
 [node name="Beartrap" type="Node2D"]
-metadata/_edit_group_ = true
+script = ExtResource("1_turss")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(5, 11)
@@ -41,3 +46,12 @@ stream = ExtResource("3_c4lfc")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 shape = SubResource("CircleShape2D_4hxjj")
+
+[node name="Area2D" type="Area2D" parent="StaticBody2D"]
+script = ExtResource("5_16cl0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D/Area2D"]
+shape = SubResource("CircleShape2D_uc6ba")
+
+[connection signal="tree_entered" from="StaticBody2D" to="." method="_on_static_body_2d_tree_entered"]
+[connection signal="body_entered" from="StaticBody2D/Area2D" to="." method="_on_area_2d_body_entered"]

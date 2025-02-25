@@ -27,6 +27,10 @@ func _ready() -> void:
 	parent.FS.connect(_get_sick)
 	parent.HS.connect(_get_homesick)
 	$AnimatedSprite2D.play()
+	
+	
+	#handle camper entering traps
+	add_to_group("Camper")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
