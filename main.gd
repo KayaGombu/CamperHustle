@@ -9,6 +9,8 @@ extends Node
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	$ColorRect.show()
+	$HUD.show()
 	if bear_trap_spawn == null:
 		print("spawnArea node not found")
 		
@@ -20,4 +22,13 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	pass
+
+func new_game():
+	$Player.position = $StartPosition.position
+	$StartTimer.start()
+	$HUD.show_message("Save the campers!")
+	$HUD.hide()
+
+func game_over():
 	pass

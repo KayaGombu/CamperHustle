@@ -53,5 +53,10 @@ script = ExtResource("5_16cl0")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D/Area2D"]
 shape = SubResource("CircleShape2D_uc6ba")
 
+[node name="Disappear" type="Timer" parent="StaticBody2D/Area2D"]
+
 [connection signal="tree_entered" from="StaticBody2D" to="." method="_on_static_body_2d_tree_entered"]
 [connection signal="body_entered" from="StaticBody2D/Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="close" from="StaticBody2D/Area2D" to="." method="_on_area_2d_close"]
+[connection signal="delete" from="StaticBody2D/Area2D" to="." method="_on_area_2d_delete"]
+[connection signal="timeout" from="StaticBody2D/Area2D/Disappear" to="StaticBody2D/Area2D" method="_on_disappear_timeout"]

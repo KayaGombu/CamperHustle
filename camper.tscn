@@ -198,7 +198,7 @@ shape = SubResource("CircleShape2D_jrb4x")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_drtht")
-animation = &"Down Walk"
+animation = &"Idle Side"
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("10_it6h6")

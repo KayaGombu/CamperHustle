@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://ryj4jeoic5oq"]
+[gd_scene load_steps=25 format=3 uid="uid://ryj4jeoic5oq"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_8c20n"]
 [ext_resource type="AudioStream" uid="uid://ck6mfoni8hbf" path="res://Camper Hustle/Sound Effects/Background Noise -Music.mp3" id="1_nbwmi"]
@@ -14,7 +14,8 @@
 [ext_resource type="Texture2D" uid="uid://b1ql82ws7p4eu" path="res://Camper Hustle/World/survivalgame-terrian-defult.png" id="11_d4j8e"]
 [ext_resource type="Texture2D" uid="uid://brkubh035gh4r" path="res://Camper Hustle/World/Wood Floor.png" id="12_5porm"]
 [ext_resource type="Texture2D" uid="uid://dnw032m5scgiu" path="res://Camper Hustle/World/Screenshot 2025-02-22 151530.png" id="14_0pi1w"]
-[ext_resource type="PackedScene" uid="uid://dxtcexsdygp02" path="res://bear_trap_spawn.tscn" id="15_w38up"]
+[ext_resource type="PackedScene" path="res://bear_trap_spawn.tscn" id="15_xwlow"]
+[ext_resource type="PackedScene" uid="uid://8jau8lfwyexw" path="res://hud.tscn" id="16_jvjsn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ugfhm"]
 size = Vector2(223, 160)
@@ -3500,6 +3501,12 @@ sources/4 = SubResource("TileSetAtlasSource_ia341")
 y_sort_enabled = true
 script = ExtResource("1_8c20n")
 
+[node name="ColorRect" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(500, 500)
+offset_right = 1150.0
+offset_bottom = 650.0
+color = Color(0.396078, 0.435294, 0.827451, 1)
+
 [node name="Music" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("1_nbwmi")
 
@@ -3546,6 +3553,9 @@ one_shot = true
 [node name="Child Event" type="Timer" parent="."]
 one_shot = true
 
+[node name="StartTimer" type="Timer" parent="."]
+one_shot = true
+
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_ng6yp")
 format = 2
@@ -3561,20 +3571,22 @@ polygon = PackedVector2Array(334, 0, 335, 56, 339, 67, 347, 71, 357, 76, 369, 75
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Collisions"]
 polygon = PackedVector2Array(-1, 0, 1152, 0, 1153, 650, -3, 650, 0, 0, 0, -1, -1, 0, -15, 656, 62, 678, 1221, 695, 1242, -81, -86, -102)
 
-[node name="Marker2D" type="Marker2D" parent="."]
-position = Vector2(780, 115)
+[node name="StartPosition" type="Marker2D" parent="."]
+position = Vector2(997, 314)
 
-[node name="BearTrapSpawn" parent="." instance=ExtResource("15_w38up")]
-position = Vector2(424, 232)
+[node name="BearTrapSpawn" parent="." instance=ExtResource("15_xwlow")]
+position = Vector2(582, 524)
 
-[node name="BearTrapSpawn2" parent="." instance=ExtResource("15_w38up")]
-position = Vector2(760, 512)
+[node name="BearTrapSpawn2" parent="." instance=ExtResource("15_xwlow")]
+position = Vector2(919, 505)
 
-[node name="BearTrapSpawn3" parent="." instance=ExtResource("15_w38up")]
-position = Vector2(816, 192)
+[node name="BearTrapSpawn3" parent="." instance=ExtResource("15_xwlow")]
+position = Vector2(428, 222)
 
-[node name="BearTrapSpawn4" parent="." instance=ExtResource("15_w38up")]
-position = Vector2(336, 512)
+[node name="BearTrapSpawn4" parent="." instance=ExtResource("15_xwlow")]
+position = Vector2(892, 136)
+
+[node name="HUD" parent="." instance=ExtResource("16_jvjsn")]
 
 [connection signal="step" from="Player" to="Fire" method="_on_player_step"]
 [connection signal="timeout" from="FireSpread" to="ForestFire" method="_on_fire_spread_timeout"]
