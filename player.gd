@@ -4,6 +4,7 @@ extends CharacterBody2D
 var screen_size
 var direction
 var holding = false
+var sprintCount = 20
 signal pick_up_child
 signal drop_child
 signal step
@@ -52,6 +53,7 @@ func _process(delta: float) -> void:
 			direction = "Down"
 	if velocity.x == 0 && velocity.y == 0:
 		idle()
+		
 	if Input.is_action_just_pressed("pick_up"):
 		if not holding:
 			holding = true
@@ -70,6 +72,7 @@ func idle():
 		$AnimatedSprite2D.flip_h = true
 	elif direction == "Right":
 		$AnimatedSprite2D.animation = "Side Idle"			
+
 func _on_body_entered(body: Node2D) -> void:
 	if body.has_method("fire"):
 		print("Fire")
