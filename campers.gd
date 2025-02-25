@@ -29,10 +29,10 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if playcated == alive:
 		print("Player saved " + str(playcated) + " campers")
-		$"../FireSpread".stop()
-		$"../Child Event".stop()
+		game_over()
 	elif alive == 0:
 		print("Game Over")
+		game_over()
 
 func SpawnCampers():
 	for i in 7:
@@ -93,13 +93,15 @@ func _on_camper_death(name, kill = ""):
 			campers[i][2] = "Dead"
 			alive -= 1
 	if kill != "beartrap":
-		useless.emit()
-		get_child(0).position = Vector2(-100, -100)
+		if isHomesick:
+			useless.emit()
+			get_child(0).position = Vector2(-100, -100)
 		$"../Child Event".start(randi_range(10, 20))
 
 func _on_camper_survival(name):
-	useless.emit()
-	get_child(0).position = Vector2(-100, -100)
+	if isHomesick:
+		useless.emit()
+		get_child(0).position = Vector2(-100, -100)
 	$"../Child Event".start(randi_range(10, 20))
 
 func _enter_cabin(name):
@@ -126,6 +128,9 @@ func _on_dropped():
 func _player_has_phone():
 	give_player_phone.emit()
 
+func game_over():
+	$"../FireSpread".stop()
+	$"../Child Event".stop()
 
 func _on_hud_start_game() -> void:
 	SpawnCampers()

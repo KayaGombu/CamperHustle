@@ -10,6 +10,7 @@ extends Node
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	get_node("/root/Main/Player").hide()
+	$CampFire.hide()
 	$ColorRect.show()
 	$HUD.show()
 	if bear_trap_spawn == null:
@@ -37,4 +38,5 @@ func new_game():
 		bear_trap_spawn_3.spawn_bear_trap()
 		bear_trap_spawn_4.spawn_bear_trap()
 	get_node("/root/Main/Player").show()
+	$CampFire.show()
 	get_tree().call_group("campers", "queue_free")
