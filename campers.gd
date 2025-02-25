@@ -12,6 +12,11 @@ var playerHolding = false
 var isHomesick = false
 signal holding
 signal empty
+
+
+
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	phone.name = "Phone"
