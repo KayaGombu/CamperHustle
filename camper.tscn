@@ -187,6 +187,10 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_x4jxi"]
+radius = 17.0
+height = 48.0
+
 [node name="Camper" type="CharacterBody2D"]
 position = Vector2(195, 149)
 script = ExtResource("1_v7cdh")

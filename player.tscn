@@ -102,7 +102,7 @@ metadata/_edit_group_ = true
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-1, -6)
 sprite_frames = SubResource("SpriteFrames_gv4i8")
-animation = &"Up Walk"
+animation = &"Up Idle"
 
 [node name="Footsteps" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("10_24qmm")
@@ -113,5 +113,3 @@ current = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 13)
 shape = SubResource("CircleShape2D_pjnl2")
-
-[connection signal="step" from="." to="." method="_on_step"]
