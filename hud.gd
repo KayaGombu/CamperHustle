@@ -31,8 +31,10 @@ func show_game_over():
 func _on_start_button_pressed() -> void:
 	$StartButton.hide()
 	colorRect.hide()
+	$Message.hide()
 	start_game.emit()
 	
 
-func _on_message_timer_timeout() -> void:
+
+func _on_timer_timeout() -> void:
 	$Message.hide()

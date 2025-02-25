@@ -18,6 +18,8 @@ var following = false
 var status = "Good"
 var playcated = false
 
+
+
 func _ready() -> void:
 	var player = get_node("/root/Main/Player")
 	var heal = get_node("/root/Main/Infirmary")

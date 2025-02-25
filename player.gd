@@ -12,12 +12,26 @@ signal step
 signal pick_up_phone
 signal give_phone
 
+#player health
+@export var maxHealth = 100
+@onready var currentHealth: int = maxHealth
+@onready var health_bar: ProgressBar = $CanvasLayer/HealthBar
+var isHurt = false
+
+
+
 func _ready() -> void:
 	screen_size = get_viewport_rect().size
 	var held = get_node("/root/Main/Campers")
 	held.give_player_phone.connect(_has_phone)
 	held.holding.connect(_holding)
 	held.empty.connect(_empty)
+	
+	
+	health_bar.value = maxHealth
+	
+
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -99,3 +113,13 @@ func _has_phone():
 
 func player():
 	pass
+	
+func hurtByCamperDeath():
+	print("hurt called")
+	currentHealth -= 15
+	health_bar.value = currentHealth
+	if currentHealth < 0:
+		currentHealth = maxHealth
+	
+	isHurt = true
+	
