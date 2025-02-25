@@ -9,18 +9,11 @@ extends Node
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	get_node("/root/Main/Player").hide()
 	$ColorRect.show()
 	$HUD.show()
 	if bear_trap_spawn == null:
 		print("spawnArea node not found")
-		
-	for _i in range(2):
-		bear_trap_spawn.spawn_bear_trap()
-		bear_trap_spawn_2.spawn_bear_trap()
-		bear_trap_spawn_3.spawn_bear_trap()
-		bear_trap_spawn_4.spawn_bear_trap()
-		
-		
 	$ColorRect.show()
 	$HUD.show()
 
@@ -38,4 +31,10 @@ func new_game():
 	$StartTimer.start()
 	$HUD.show_message("Save the campers!")
 	$HUD.hide()
+	for _i in range(2):
+		bear_trap_spawn.spawn_bear_trap()
+		bear_trap_spawn_2.spawn_bear_trap()
+		bear_trap_spawn_3.spawn_bear_trap()
+		bear_trap_spawn_4.spawn_bear_trap()
+	get_node("/root/Main/Player").show()
 	get_tree().call_group("campers", "queue_free")

@@ -137,7 +137,7 @@ func _on_pick_up_range_body_exited(body: Node2D) -> void:
 		inRange = false
 
 func _on_camper_entered(body: Node2D):
-	if body.has_method("camper") && status == "Sick":
+	if body.name == self.name && status == "Sick":
 		status = "Good"
 		$TilDeath.stop()
 		survive.emit(self.name)
@@ -167,8 +167,7 @@ func sideAnimation():
 		$AnimatedSprite2D.animation = "Side Walk"
 
 func beartrapKill():
-	print("Kill")
-	death.emit(self.name)
+	death.emit(self.name, "beartrap")
 	queue_free()
 
 func camper():

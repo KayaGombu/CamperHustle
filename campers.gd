@@ -9,6 +9,7 @@ var alive = 7
 var playcated = 0
 @onready var phone = preload("res://phone.tscn").instantiate()
 var playerHolding = false
+var isHomesick = false
 signal holding
 signal empty
 # Called when the node enters the scene tree for the first time.
@@ -18,7 +19,6 @@ func _ready() -> void:
 	self.add_child(phone)
 	get_child(0).has_phone.connect(_player_has_phone)
 	get_child(0).dropped_phone.connect(_on_dropped)
-	SpawnCampers()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -79,16 +79,18 @@ func homesick():
 		x = randi_range(27, 491)
 		y = randi_range(236, 630)
 	get_child(0).position = Vector2(x, y)
+	isHomesick = true
 	HS.emit(campers[random][0])
 
-func _on_camper_death(name):
+func _on_camper_death(name, kill = ""):
 	for i in campers.size():
 		if campers[i][0] == name:
 			campers[i][2] = "Dead"
 			alive -= 1
-	useless.emit()
-	get_child(0).position = Vector2(-100, -100)
-	$"../Child Event".start(randi_range(10, 20))
+	if kill != "beartrap":
+		useless.emit()
+		get_child(0).position = Vector2(-100, -100)
+		$"../Child Event".start(randi_range(10, 20))
 
 func _on_camper_survival(name):
 	useless.emit()
@@ -118,3 +120,7 @@ func _on_dropped():
 
 func _player_has_phone():
 	give_player_phone.emit()
+
+
+func _on_hud_start_game() -> void:
+	SpawnCampers()
