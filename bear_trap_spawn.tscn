@@ -4,8 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://5bvq0m8gpcyp" path="res://beartrap.tscn" id="2_gcxev"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_f2pcv"]
-radius = 64.0
-height = 128.0
+radius = 112.0
+height = 224.0
 
 [node name="BearTrapSpawn" type="Area2D"]
 script = ExtResource("1_cerm7")

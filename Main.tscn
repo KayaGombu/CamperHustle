@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://ryj4jeoic5oq"]
+[gd_scene load_steps=24 format=3 uid="uid://ryj4jeoic5oq"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_8c20n"]
 [ext_resource type="AudioStream" uid="uid://ck6mfoni8hbf" path="res://Camper Hustle/Sound Effects/Background Noise -Music.mp3" id="1_nbwmi"]
@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://b1ql82ws7p4eu" path="res://Camper Hustle/World/survivalgame-terrian-defult.png" id="11_d4j8e"]
 [ext_resource type="Texture2D" uid="uid://brkubh035gh4r" path="res://Camper Hustle/World/Wood Floor.png" id="12_5porm"]
 [ext_resource type="Texture2D" uid="uid://dnw032m5scgiu" path="res://Camper Hustle/World/Screenshot 2025-02-22 151530.png" id="14_0pi1w"]
+[ext_resource type="PackedScene" uid="uid://dxtcexsdygp02" path="res://bear_trap_spawn.tscn" id="15_w38up"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ugfhm"]
 size = Vector2(223, 160)
@@ -3562,6 +3563,18 @@ polygon = PackedVector2Array(-1, 0, 1152, 0, 1153, 650, -3, 650, 0, 0, 0, -1, -1
 
 [node name="Marker2D" type="Marker2D" parent="."]
 position = Vector2(780, 115)
+
+[node name="BearTrapSpawn" parent="." instance=ExtResource("15_w38up")]
+position = Vector2(424, 232)
+
+[node name="BearTrapSpawn2" parent="." instance=ExtResource("15_w38up")]
+position = Vector2(760, 512)
+
+[node name="BearTrapSpawn3" parent="." instance=ExtResource("15_w38up")]
+position = Vector2(816, 192)
+
+[node name="BearTrapSpawn4" parent="." instance=ExtResource("15_w38up")]
+position = Vector2(336, 512)
 
 [connection signal="step" from="Player" to="Fire" method="_on_player_step"]
 [connection signal="timeout" from="FireSpread" to="ForestFire" method="_on_fire_spread_timeout"]
