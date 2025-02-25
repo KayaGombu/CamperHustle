@@ -17,7 +17,23 @@ func _ready() -> void:
 		bear_trap_spawn_2.spawn_bear_trap()
 		bear_trap_spawn_3.spawn_bear_trap()
 		bear_trap_spawn_4.spawn_bear_trap()
+		
+		
+	$ColorRect.show()
+	$HUD.show()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
+	
+	
+func game_over():
+	pass
+
+func new_game():
+	print("new game called")
+	$Player.position = $StartPosition.position
+	$StartTimer.start()
+	$HUD.show_message("Save the campers!")
+	$HUD.hide()
+	get_tree().call_group("campers", "queue_free")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://ryj4jeoic5oq"]
+[gd_scene load_steps=25 format=3 uid="uid://ryj4jeoic5oq"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_8c20n"]
 [ext_resource type="AudioStream" uid="uid://ck6mfoni8hbf" path="res://Camper Hustle/Sound Effects/Background Noise -Music.mp3" id="1_nbwmi"]
@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://brkubh035gh4r" path="res://Camper Hustle/World/Wood Floor.png" id="12_5porm"]
 [ext_resource type="Texture2D" uid="uid://dnw032m5scgiu" path="res://Camper Hustle/World/Screenshot 2025-02-22 151530.png" id="14_0pi1w"]
 [ext_resource type="PackedScene" uid="uid://dxtcexsdygp02" path="res://bear_trap_spawn.tscn" id="15_w38up"]
+[ext_resource type="PackedScene" uid="uid://blasi6qisqybn" path="res://hud.tscn" id="16_up5tf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ugfhm"]
 size = Vector2(223, 160)
@@ -3500,6 +3501,11 @@ sources/4 = SubResource("TileSetAtlasSource_ia341")
 y_sort_enabled = true
 script = ExtResource("1_8c20n")
 
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0.223529, 0.803922, 1, 1)
+
 [node name="Music" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("1_nbwmi")
 
@@ -3576,7 +3582,17 @@ position = Vector2(816, 192)
 [node name="BearTrapSpawn4" parent="." instance=ExtResource("15_w38up")]
 position = Vector2(336, 512)
 
+[node name="HUD" parent="." instance=ExtResource("16_up5tf")]
+
+[node name="StartPosition" type="Marker2D" parent="."]
+position = Vector2(997, 314)
+
+[node name="StartTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
 [connection signal="step" from="Player" to="Fire" method="_on_player_step"]
 [connection signal="timeout" from="FireSpread" to="ForestFire" method="_on_fire_spread_timeout"]
 [connection signal="timeout" from="ContinueSpread" to="ForestFire" method="_on_continue_spread_timeout"]
 [connection signal="timeout" from="Child Event" to="Campers" method="_on_child_event_timeout"]
+[connection signal="start_game" from="HUD" to="." method="new_game"]
