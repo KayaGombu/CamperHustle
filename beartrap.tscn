@@ -30,7 +30,7 @@ radius = 21.0238
 metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(142, 40)
+position = Vector2(5, 11)
 sprite_frames = SubResource("SpriteFrames_bmn48")
 animation = &"open"
 
@@ -40,5 +40,4 @@ stream = ExtResource("3_c4lfc")
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(137, 29)
 shape = SubResource("CircleShape2D_4hxjj")
