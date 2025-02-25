@@ -5,6 +5,7 @@ var screen_size
 var direction
 var holding = false
 var phone = false
+var sprintCount = 20
 signal pick_up_child
 signal drop_child
 signal step
@@ -59,6 +60,7 @@ func _process(delta: float) -> void:
 			direction = "Down"
 	if velocity.x == 0 && velocity.y == 0:
 		idle()
+		
 	if Input.is_action_just_pressed("pick_up"):
 		if not holding:
 			pick_up_child.emit()
