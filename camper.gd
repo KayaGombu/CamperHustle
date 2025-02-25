@@ -13,6 +13,8 @@ var inRange = false
 var following = false
 var status = "Good"
 
+
+
 func _ready() -> void:
 	var player = get_node("/root/Main/Player")
 	var heal = get_node("/root/Main/Infirmary")

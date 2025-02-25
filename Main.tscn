@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://ryj4jeoic5oq"]
+[gd_scene load_steps=27 format=3 uid="uid://ryj4jeoic5oq"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_8c20n"]
 [ext_resource type="AudioStream" uid="uid://ck6mfoni8hbf" path="res://Camper Hustle/Sound Effects/Background Noise -Music.mp3" id="1_nbwmi"]
@@ -16,6 +16,12 @@
 [ext_resource type="Texture2D" uid="uid://dnw032m5scgiu" path="res://Camper Hustle/World/Screenshot 2025-02-22 151530.png" id="14_0pi1w"]
 [ext_resource type="PackedScene" uid="uid://dxtcexsdygp02" path="res://bear_trap_spawn.tscn" id="15_w38up"]
 [ext_resource type="PackedScene" uid="uid://blasi6qisqybn" path="res://hud.tscn" id="16_up5tf"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4hlx4"]
+bg_color = Color(0.219501, 0.219501, 0.219501, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_77051"]
+bg_color = Color(0.883974, 0.43158, 0.0792697, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ugfhm"]
 size = Vector2(223, 160)
@@ -3502,9 +3508,10 @@ y_sort_enabled = true
 script = ExtResource("1_8c20n")
 
 [node name="ColorRect" type="ColorRect" parent="."]
+visible = false
 offset_right = 1152.0
 offset_bottom = 648.0
-color = Color(0.223529, 0.803922, 1, 1)
+color = Color(1.29351e-07, 0.0521493, 0.079034, 1)
 
 [node name="Music" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("1_nbwmi")
@@ -3519,8 +3526,20 @@ position = Vector2(583, 323)
 z_index = 1
 position = Vector2(997, 314)
 
+[node name="CanvasLayer" type="CanvasLayer" parent="Player"]
+
+[node name="HealthBar" type="ProgressBar" parent="Player/CanvasLayer"]
+offset_left = 832.0
+offset_top = 8.0
+offset_right = 1128.0
+offset_bottom = 64.0
+theme_override_styles/background = SubResource("StyleBoxFlat_4hlx4")
+theme_override_styles/fill = SubResource("StyleBoxFlat_77051")
+value = 10.0
+
 [node name="Infirmary" type="Area2D" parent="."]
 position = Vector2(513, 34)
+metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Infirmary"]
 position = Vector2(-373.5, 66)
