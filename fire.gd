@@ -13,7 +13,7 @@ func _process(delta: float) -> void:
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.has_method("player"):
-		putOut.emit(self.name)
+		put_out.emit(self.name)
 		queue_free()
 	elif body.has_method("camper"):
 		body.queue_free()
