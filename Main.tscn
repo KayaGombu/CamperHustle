@@ -3625,5 +3625,6 @@ script = ExtResource("17_5m4ur")
 [connection signal="timeout" from="FireSpread" to="ForestFire" method="_on_fire_spread_timeout"]
 [connection signal="timeout" from="ContinueSpread" to="ForestFire" method="_on_continue_spread_timeout"]
 [connection signal="timeout" from="Child Event" to="Campers" method="_on_child_event_timeout"]
+[connection signal="end_game" from="HUD" to="HUD" method="_on_end_game"]
 [connection signal="start_game" from="HUD" to="." method="new_game"]
 [connection signal="start_game" from="HUD" to="Campers" method="_on_hud_start_game"]

@@ -18,6 +18,7 @@ signal give_phone
 var isHurt = false
 signal healthChanged
 
+@onready var hud: CanvasLayer = $"../HUD"
 
 
 func _ready() -> void:
@@ -113,7 +114,7 @@ func hurtByCamperDeath():
 	currentHealth -= 15
 	
 	if currentHealth < 0:
-		currentHealth = maxHealth
+		hud.end_game.emit()
 	
 	isHurt = true
 	healthChanged.emit()
