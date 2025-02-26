@@ -24,8 +24,6 @@ func _process(delta: float) -> void:
 	pass
 	
 	
-func game_over():
-	pass
 
 func new_game():
 	print("new game called")
@@ -33,6 +31,9 @@ func new_game():
 	$StartTimer.start()
 	$HUD.show_message("Save the campers!")
 	
+	#health bar and score display
+	$CanvasLayer/HealthBar.show()
+	$HUD/Score.show()
 	
 	for _i in range(2):
 		bear_trap_spawn.spawn_bear_trap()

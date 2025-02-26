@@ -2,6 +2,7 @@ extends Area2D
 
 var camperCount = 0
 @onready var campers: Node2D = $"../Campers"
+@onready var hud: CanvasLayer = $"../HUD"
 
 
 # Called when the node enters the scene tree for the first time.
@@ -21,6 +22,9 @@ func _on_body_entered(body: Node2D) -> void:
 		
 		if camperCount == campers.alive:
 			print("finished game")
+			$"../HUD".win_game.emit()
+			
+			
 
 
 func _on_body_exited(body: Node2D) -> void:
