@@ -15,8 +15,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if is_game_frozen:
-		return
+	pass
 
 
 func show_message(text):
@@ -35,9 +34,7 @@ func show_game_over():
 
 
 func _on_start_button_pressed() -> void:
-	$StartButton.hide()
-	colorRect.hide()
-	$Message.hide()
-	
-	start_game.emit()
-	
+		$StartButton.hide()
+		colorRect.hide()
+		$Message.hide()
+		start_game.emit()

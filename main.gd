@@ -39,4 +39,6 @@ func new_game():
 		bear_trap_spawn_4.spawn_bear_trap()
 	get_node("/root/Main/Player").show()
 	$CampFire.show()
+	$Forest.play()
+	$Music.play()
 	get_tree().call_group("campers", "queue_free")

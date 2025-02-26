@@ -15,7 +15,7 @@ signal give_phone
 #player health
 @export var maxHealth = 100
 @onready var currentHealth: int = maxHealth
-@onready var health_bar: ProgressBar = $CanvasLayer/HealthBar
+@onready var health_bar: ProgressBar = get_node("/root/Main/CanvasLayer/HealthBar")
 var isHurt = false
 signal healthChanged
 

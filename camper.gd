@@ -21,6 +21,7 @@ var playcated = false
 
 
 func _ready() -> void:
+	print("Hello")
 	var player = get_node("/root/Main/Player")
 	var heal = get_node("/root/Main/Infirmary")
 	var playcate = get_node("/root/Main/Cabin")
