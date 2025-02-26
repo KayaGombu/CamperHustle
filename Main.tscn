@@ -14,7 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://b1ql82ws7p4eu" path="res://Camper Hustle/World/survivalgame-terrian-defult.png" id="11_d4j8e"]
 [ext_resource type="Texture2D" uid="uid://brkubh035gh4r" path="res://Camper Hustle/World/Wood Floor.png" id="12_5porm"]
 [ext_resource type="Texture2D" uid="uid://dnw032m5scgiu" path="res://Camper Hustle/World/Screenshot 2025-02-22 151530.png" id="14_0pi1w"]
-[ext_resource type="PackedScene" path="res://bear_trap_spawn.tscn" id="15_w38up"]
+[ext_resource type="PackedScene" uid="uid://dxtcexsdygp02" path="res://bear_trap_spawn.tscn" id="15_w38up"]
 [ext_resource type="PackedScene" uid="uid://8jau8lfwyexw" path="res://hud.tscn" id="16_up5tf"]
 [ext_resource type="Script" path="res://health_bar.gd" id="17_5m4ur"]
 
@@ -3509,6 +3509,7 @@ y_sort_enabled = true
 script = ExtResource("1_8c20n")
 
 [node name="ColorRect" type="ColorRect" parent="."]
+visible = false
 offset_right = 1152.0
 offset_bottom = 648.0
 color = Color(1.29351e-07, 0.0521493, 0.079034, 1)
