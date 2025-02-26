@@ -14,6 +14,7 @@ signal holding
 signal empty
 
 
+#handling player's score 
 @onready var score: Label = $"../HUD/Score"
 
 
@@ -35,6 +36,8 @@ func _process(delta: float) -> void:
 		print("Game Over")
 		game_over()
 
+
+	#update score label
 	score.text = "Campers alive: " + str(alive)
 
 func SpawnCampers():
