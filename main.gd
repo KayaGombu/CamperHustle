@@ -7,6 +7,7 @@ extends Node
 
 
 
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	get_node("/root/Main/Player").hide()
@@ -31,7 +32,8 @@ func new_game():
 	$Player.position = $StartPosition.position
 	$StartTimer.start()
 	$HUD.show_message("Save the campers!")
-	$HUD.hide()
+	
+	
 	for _i in range(2):
 		bear_trap_spawn.spawn_bear_trap()
 		bear_trap_spawn_2.spawn_bear_trap()
@@ -42,3 +44,6 @@ func new_game():
 	$Forest.play()
 	$Music.play()
 	get_tree().call_group("campers", "queue_free")
+	
+	await get_tree().create_timer(2.0).timeout
+	$HUD/Message.hide()

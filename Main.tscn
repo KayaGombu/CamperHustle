@@ -3597,7 +3597,14 @@ position = Vector2(816, 192)
 position = Vector2(336, 512)
 
 [node name="HUD" parent="." instance=ExtResource("16_up5tf")]
-visible = false
+
+[node name="Score" type="Label" parent="HUD"]
+offset_left = 8.0
+offset_top = 576.0
+offset_right = 48.0
+offset_bottom = 664.0
+theme_override_font_sizes/font_size = 45
+text = "0"
 
 [node name="StartPosition" type="Marker2D" parent="."]
 position = Vector2(997, 314)

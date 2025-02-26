@@ -14,6 +14,7 @@ signal holding
 signal empty
 
 
+@onready var score: Label = $"../HUD/Score"
 
 
 
@@ -33,6 +34,8 @@ func _process(delta: float) -> void:
 	elif alive == 0:
 		print("Game Over")
 		game_over()
+
+	score.text = "Campers alive: " + str(alive)
 
 func SpawnCampers():
 	for i in 7:
@@ -92,6 +95,9 @@ func _on_camper_death(name, kill = ""):
 		if campers[i][0] == name:
 			campers[i][2] = "Dead"
 			alive -= 1
+			
+	$"../Player".hurtByCamperDeath()
+			
 	if kill != "beartrap":
 		if isHomesick:
 			useless.emit()
