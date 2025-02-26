@@ -95,7 +95,8 @@ func _on_camper_death(name, kill = ""):
 		if campers[i][0] == name:
 			campers[i][2] = "Dead"
 			alive -= 1
-			
+	
+	#take off player's health on each camper death
 	$"../Player".hurtByCamperDeath()
 			
 	if kill != "beartrap":
