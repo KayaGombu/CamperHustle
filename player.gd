@@ -5,7 +5,6 @@ var screen_size
 var direction
 var holding = false
 var phone = false
-var sprintCount = 20
 signal pick_up_child
 signal drop_child
 signal step
@@ -26,10 +25,6 @@ func _ready() -> void:
 	held.give_player_phone.connect(_has_phone)
 	held.holding.connect(_holding)
 	held.empty.connect(_empty)
-	
-	
-
-
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
