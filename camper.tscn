@@ -190,6 +190,7 @@ animations = [{
 [node name="Camper" type="CharacterBody2D"]
 position = Vector2(195, 149)
 script = ExtResource("1_v7cdh")
+timeTilDeath = 15
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

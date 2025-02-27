@@ -2,6 +2,7 @@ extends Area2D
 
 @export var bear_trap_scene: PackedScene 
 @onready var collision_shape: CollisionShape2D = $CollisionShape2D 
+var spawntraps = []
 
 func get_random_position():
 	var radius = collision_shape.shape.radius 
@@ -17,7 +18,14 @@ func spawn_bear_trap():
 		print("bear_trap_scene is null")
 		return
 
-	var bear_trap = bear_trap_scene.instantiate() 
+	var bear_trap = bear_trap_scene.instantiate()
 	bear_trap.position = get_random_position() 
 	get_tree().current_scene.add_child(bear_trap)
 	
+	spawntraps.append(bear_trap)
+
+func removeAllBeartraps():
+	for i in spawntraps:
+		if is_instance_valid(i):
+			i.queue_free()
+	spawntraps.clear()

@@ -29,14 +29,6 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if playcated == alive:
-		print("Player saved " + str(playcated) + " campers")
-		game_over()
-	elif alive == 0:
-		print("Game Over")
-		game_over()
-
-
 	#update score label
 	score.text = "Campers alive: " + str(alive)
 
@@ -52,7 +44,7 @@ func SpawnCampers():
 			y = randi_range(0, 648)
 		obj.position = Vector2(x, y)
 		self.add_child(obj)
-		campers.append([obj.name, obj.position, "Alive", false])
+		campers.append([obj.name, "Alive", false])
 		#Name, Position, Status, Playcated
 		obj.death.connect(_on_camper_death)
 		obj.survive.connect(_on_camper_survival)
@@ -72,18 +64,18 @@ func _on_child_event_timeout() -> void:
 func sickness():
 	var a = campers.size()
 	var random = randi_range(0, a-1)
-	while (campers[random][2] == "Dead"):
+	while (campers[random][1] == "Dead"):
 		random = randi_range(0, a-1)
 	FS.emit(campers[random][0])
 
 func homesick():
 	var a = campers.size()
 	var random = randi_range(0, a-1)
-	while (campers[random][2] == "Dead"):
+	while (campers[random][1] == "Dead"):
 		random = randi_range(0, a-1)
 	var x
 	var y
-	if !campers[random][3]:
+	if !campers[random][2]:
 		x = randi_range(1070, 1120)
 		y = randi_range(170, 430)
 	else:
@@ -96,7 +88,7 @@ func homesick():
 func _on_camper_death(name, kill = ""):
 	for i in campers.size():
 		if campers[i][0] == name:
-			campers[i][2] = "Dead"
+			campers[i][1] = "Dead"
 			alive -= 1
 	
 	#take off player's health on each camper death
@@ -118,13 +110,13 @@ func _enter_cabin(name):
 	playcated += 1
 	for i in campers.size():
 		if campers[i][0] == name:
-			campers[i][3] = true
+			campers[i][2] = true
 
 func _exit_cabin(name):
 	playcated -= 1
 	for i in campers.size():
 		if campers[i][0] == name:
-			campers[i][3] = false
+			campers[i][2] = false
 
 func _on_picked_up():
 	if !playerHolding:

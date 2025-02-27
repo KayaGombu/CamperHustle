@@ -13,20 +13,16 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
-
+	if is_instance_valid(campers):
+		if camperCount == campers.alive:
+			print("finished game")
+			$"../HUD".win_game.emit()
+			camperCount = 0
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Camper"):
 		camperCount += 1
 		print("Camper entered. Total: ", camperCount)
-		
-		if camperCount == campers.alive:
-			print("finished game")
-			$"../HUD".win_game.emit()
-			
-			
-
 
 func _on_body_exited(body: Node2D) -> void:
 	if body.is_in_group("Camper"):
