@@ -88,7 +88,8 @@ func show_message_on_win():
 	
 	#how many saved show message
 	if cabin.camperCount == 7:
-		show_win_message("Nice Job!")
+		show_win_message("Excelent job! All kids are safe.")
 	elif cabin.camperCount == 1:
-		show_win_message("You did everything you could:(")
-		
+		show_win_message("You did everything you could :(")
+	else:
+		show_win_message("Nice Job!")	
