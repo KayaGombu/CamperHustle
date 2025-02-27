@@ -4,20 +4,17 @@ extends Node
 @onready var bear_trap_spawn_2: Area2D = $BearTrapSpawn2
 @onready var bear_trap_spawn_3: Area2D = $BearTrapSpawn3
 @onready var bear_trap_spawn_4: Area2D = $BearTrapSpawn4
-
-
-
+@onready var hud: CanvasLayer = $HUD
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	hud.remove_beartraps.connect(_remove_beartraps)
 	get_node("/root/Main/Player").hide()
 	$CampFire.hide()
 	$ColorRect.show()
 	$HUD.show()
 	if bear_trap_spawn == null:
 		print("spawnArea node not found")
-	$ColorRect.show()
-	$HUD.show()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -48,3 +45,9 @@ func new_game():
 	
 	await get_tree().create_timer(2.0).timeout
 	$HUD/Message.hide()
+
+func _remove_beartraps():
+	bear_trap_spawn.removeAllBeartraps()
+	bear_trap_spawn_2.removeAllBeartraps()
+	bear_trap_spawn_3.removeAllBeartraps()
+	bear_trap_spawn_4.removeAllBeartraps()

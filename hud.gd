@@ -7,10 +7,11 @@ extends CanvasLayer
 signal start_game
 signal end_game
 signal win_game
+signal remove_beartraps
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	
+	$ReturnButton.hide()
 	$Message.text = "Press Start to Begin"
 	$Message.show()
 	$StartButton.show()
@@ -64,9 +65,22 @@ func _on_end_game() -> void:
 func _on_win_game() -> void:
 	print("win game emitted")
 	show_message_on_win()
-	$StartButton.show()
+	$StartButton.hide()
 	colorRect.show()
 	$Score.hide()
+	$"../CampFire".hide()
+	$"../Player".hide()
+	$"../Music".stop()
+	$"../Forest".stop()
+	$"../Campers".queue_free()
+	$"../ForestFire".queue_free()
+	$"../CanvasLayer/HealthBar".hide()
+	remove_beartraps.emit()
+	$"../ContinueSpread".stop()
+	$"../FireSpread".stop()
+	$"../Child Event".stop()
+	await get_tree().create_timer(5).timeout
+	get_tree().reload_current_scene()
 	
 func show_message_on_win():
 	show_message("You saved: " + str(cabin.camperCount) + " camper")

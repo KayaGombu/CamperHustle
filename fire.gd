@@ -16,4 +16,5 @@ func _on_body_entered(body: Node2D) -> void:
 		put_out.emit(self.name)
 		queue_free()
 	elif body.has_method("camper"):
+		body.death.emit(body.name)
 		body.queue_free()
