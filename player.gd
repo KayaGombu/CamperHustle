@@ -11,6 +11,7 @@ signal step
 signal pick_up_phone
 signal give_phone
 
+
 #player health
 @export var maxHealth = 100
 @onready var currentHealth: int = maxHealth
@@ -30,6 +31,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+
 	var velocity = Vector2.ZERO # The player's movement vector.
 	var collision = move_and_collide(velocity * delta)
 	if !collision:

@@ -47,12 +47,14 @@ func _on_start_button_pressed() -> void:
 		$StartButton.hide()
 		colorRect.hide()
 		$Message.hide()
+		$WinMessage.hide()
+		
 		start_game.emit()
 
 
 func _on_end_game() -> void:
 	show_game_over()
-	
+	$Score.hide()
 	await get_tree().create_timer(2.0).timeout
 	var tree = get_tree()
 	if tree:
@@ -62,10 +64,15 @@ func _on_end_game() -> void:
 func _on_win_game() -> void:
 	print("win game emitted")
 	show_message_on_win()
+	$StartButton.show()
+	colorRect.show()
+	$Score.hide()
 	
 func show_message_on_win():
 	show_message("You saved: " + str(cabin.camperCount) + " camper")
-		
+	
+	
+	#how many saved show message
 	if cabin.camperCount == 7:
 		show_win_message("Nice Job!")
 	elif cabin.camperCount == 1:
